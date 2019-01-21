@@ -1,4 +1,5 @@
 @extends('master')
 @section('title')
-BDE Bordeaux
+BDE Strasbourg
 @stop
+
