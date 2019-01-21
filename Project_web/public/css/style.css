@@ -32,7 +32,8 @@ html, body {
 }
 
 .title {
-    font-size: 84px;
+    font-size: 50px;
+    color: #fff;
 }
 
 .links > a {
