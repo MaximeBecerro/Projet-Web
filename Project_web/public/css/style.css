@@ -32,8 +32,13 @@ html, body {
 }
 
 .title {
-    font-size: 50px;
+    font-size:2vw;;
     color: #fff;
+}
+
+.text{
+    font-size: 20px;
+    color: #fff
 }
 
 .links > a {
@@ -56,4 +61,10 @@ html, body {
 
 .header {
     background-color: #000000;
+}
+
+#navbar{
+    
+    background-color: #000000;
+    
 }

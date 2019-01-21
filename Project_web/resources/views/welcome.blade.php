@@ -3,33 +3,26 @@
 @section('header')
 
 <img src="{{ URL::to('/images/logo.png') }} ">
-BUREAU DES ELEVE CESI 
+   BUREAU DES ELEVES CESI BORDEAUX
 @stop
 
 @section('navbar')
-<a class="navbar-brand" href="#">BDE CESI</a>
+<a class="navbar-brand text" href="#" >BDE CESI BORDEAUX</a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Accueil</a>
+          <a class="nav-link text" href="#">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Liens</a>
+          <a class="nav-link text" href="#">Événement</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Témoignages</a>
+          <a class="nav-link text" href="#">Boite à idées</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Références</a>
+          <a class="nav-link text" href="#">Boutique</a>
         </li>
       </ul>
-      <form action="search" method="get" class="form-inline">
-        <div class="input-group">
-          <input type="text" name="search" class="form-control" placeholder="Je cherche...">
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-secondary"><span class="fa fa-search"></span> Chercher</button>
-          </span>
-        </div>
-      </form>
+      
 @stop
 
 @section('title')

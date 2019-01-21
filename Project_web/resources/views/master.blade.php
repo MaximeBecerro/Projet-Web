@@ -20,7 +20,7 @@
             @yield('header')
         </header>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-info">
+        <nav class="navbar navbar-expand-md" id = "navbar">
          @yield('navbar')
         </nav>
 
