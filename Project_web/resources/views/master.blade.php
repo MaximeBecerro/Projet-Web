@@ -14,6 +14,9 @@
 
     </head>
     <body>
+        <header class="header">
+            @yield('header')
+        </header>
 
         <div>
             @yield('logo')
@@ -49,12 +52,11 @@
                 </div>
             </div>
         </div>
-    <footer>
-        <div class="footer">
-                @yield('footer')
-        </div>
 
-        </footer> 
+    <footer class="footer">
+        @yield('footer')
+    </footer> 
+
     </body>
    
 </html>
