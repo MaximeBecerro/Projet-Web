@@ -49,5 +49,12 @@
                 </div>
             </div>
         </div>
+    <footer>
+        <div class="footer">
+                @yield('footer')
+        </div>
+
+        </footer> 
     </body>
+   
 </html>
