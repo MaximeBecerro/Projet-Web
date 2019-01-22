@@ -21,7 +21,8 @@ Route::get('/evenements', function () {
 });
 
 Route::get('/idees', function () {
-    return view('idees');
+    $centers=DB::table('centers')->get();
+    return view('idees',compact('centers'));
 });
 
 Route::get('/boutique', function () {
