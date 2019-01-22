@@ -16,21 +16,29 @@
 
     </head>
     <body>
-        <header class="header title flex-center row " >
-
-            <div class="col-md-1.5"> 
-                @yield('Image')
-            </div>
-
-            <div class="col-xs-2 col-md-6.5 flex-center"> 
-                @yield('header')
-           </div>
-            
-
+        <header class="header title flex-center">
+            @yield('header')
+                <img src="{{ URL::to('/images/logo.png') }} ">
+           BUREAU DES ELEVES CESI BORDEAUX
         </header>
 
-        <nav class="navbar navbar-expand-md " id = "navbar">
+        <nav class="navbar navbar-expand-md" id = "navbar">
          @yield('navbar')
+         <a class="navbar-brand text" href="#" > BDE CESI BORDEAUX</a>
+         <ul class="navbar-nav mr-auto">
+           <li class="nav-item active">
+             <a class="nav-link text" href="#">Accueil</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link text" href="#">Événement</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link text" href="#">Boite à idées</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link text" href="#">Boutique</a>
+           </li>
+         </ul>
         </nav>
 
         <div>
@@ -38,7 +46,7 @@
         </div>
 
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))   
+            @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -61,6 +69,8 @@
 
     <footer class="footer">
         @yield('footer')
+        test footer
+        <img src="{{ URL::to('/images/oui.jpg') }}">
     </footer> 
 
     </body>
