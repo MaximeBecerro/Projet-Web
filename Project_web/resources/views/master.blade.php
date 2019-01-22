@@ -16,11 +16,20 @@
 
     </head>
     <body>
-        <header class="header title flex-center">
-            @yield('header')
+        <header class="header title flex-center row " >
+
+            <div class="col-md-1.5"> 
+                @yield('Image')
+            </div>
+
+            <div class="col-xs-2 col-md-6.5 flex-center"> 
+                @yield('header')
+           </div>
+            
+
         </header>
 
-        <nav class="navbar navbar-expand-md" id = "navbar">
+        <nav class="navbar navbar-expand-md " id = "navbar">
          @yield('navbar')
         </nav>
 
@@ -29,7 +38,7 @@
         </div>
 
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Route::has('login'))   
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>

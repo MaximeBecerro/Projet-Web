@@ -1,9 +1,14 @@
 @extends('master')
 
-@section('header')
 
-<img src="{{ URL::to('/images/logo.png') }} ">
-   BUREAU DES ELEVES CESI BORDEAUX
+@section('Image')
+  <img src="{{ URL::to('/images/logo.png') }} ">
+   
+@stop
+
+
+@section('header')
+     BUREAU DES ELEVES CESI BORDEAUX
 @stop
 
 @section('navbar')

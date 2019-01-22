@@ -32,7 +32,8 @@ html, body {
 }
 
 .title {
-    font-size:2vw;;
+    
+    font-size: calc(1.5vw + 1.5vh );
     color: #fff;
 }
 
