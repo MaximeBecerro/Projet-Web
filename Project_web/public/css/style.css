@@ -80,6 +80,9 @@ html, body {
     animation: biggerandsmaller 1s infinite;
 }
 
+.navright {
+    margin-left: 70rem ;
+}
 
 
 @keyframes biggerandsmaller {

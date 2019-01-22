@@ -26,7 +26,7 @@
            </div>
         </header>
 
-        <nav class="navbar navbar-expand-md navbar-collapse-xs justify-content-between " id = "navbar">
+        <nav class="navbar navbar-expand-md navbar-collapse-xs" id = "navbar">
          @yield('navbar')
          <a class="navbar-brand text" href="#" ></a>
          <ul class="navbar-nav">
@@ -40,10 +40,16 @@
              <a class="nav-link text" href="/idees">Boite à idées</a>
            </li>
            
+           <li class="nav-item  ">
+                <a class="nav-link text" href="/boutique">Boutique</a>
+            </li>
          </ul>
-         <ul class="navbar-nav"> 
-         <li class="nav-item  ">
-                <a class="nav-link text" href="#">Boutique</a>
+         <ul class="navbar-nav navright"> 
+            <li class="nav-item  ">
+                <a class="nav-link text" href="/boutique">Se connecter</a>
+            </li>
+            <li class="nav-item  ">
+                    <a class="nav-link text" href="/boutique">Inscription</a>
             </li>
          </ul>
         </nav>
