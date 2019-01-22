@@ -28,3 +28,6 @@ Route::get('/idees', function () {
 Route::get('/boutique', function () {
     return view('boutique');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
