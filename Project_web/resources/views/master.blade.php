@@ -45,10 +45,6 @@
          </ul>
         </nav>
 
-        <div>
-            @yield('TitrePage')
-        </div>
-
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))   
                 <div class="top-right links">
