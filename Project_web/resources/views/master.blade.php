@@ -31,16 +31,16 @@
          <a class="navbar-brand text" href="#" ></a>
          <ul class="navbar-nav mr-auto">
            <li class="nav-item active">
-             <a class="nav-link text" href="#">Accueil</a>
+             <a class="nav-link text" href="/">Accueil</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link text" href="#">Événement</a>
+             <a class="nav-link text" href="/evenements">Événement</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link text" href="#">Boite à idées</a>
+             <a class="nav-link text" href="/idees">Boite à idées</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link text" href="#">Boutique</a>
+             <a class="nav-link text" href="/boutique">Boutique</a>
            </li>
          </ul>
         </nav>

@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/evenements', function () {
+    return view('evenements');
+});
+
+Route::get('/idees', function () {
+    return view('idees');
+});
+
+Route::get('/boutique', function () {
+    return view('boutique');
+});
