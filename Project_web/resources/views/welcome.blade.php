@@ -7,7 +7,7 @@
 @stop
 
 @section('navbar')
-<a class="navbar-brand text" href="#" >BDE CESI BORDEAUX</a>
+<a class="navbar-brand text" href="#" > BDE CESI BORDEAUX</a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link text" href="#">Accueil</a>
