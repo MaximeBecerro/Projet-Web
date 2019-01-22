@@ -22,13 +22,13 @@
             </div>
             <div class="col-xs-2 col-md-6.5 flex-center"> 
                
-           BUREAU DES ELEVES CESI BORDEAUX
+           Bureau des élèves CESI Bordeaux
            </div>
         </header>
 
         <nav class="navbar navbar-expand-md" id = "navbar">
          @yield('navbar')
-         <a class="navbar-brand text" href="#" > BDE CESI BORDEAUX</a>
+         <a class="navbar-brand text" href="#" ></a>
          <ul class="navbar-nav mr-auto">
            <li class="nav-item active">
              <a class="nav-link text" href="#">Accueil</a>
