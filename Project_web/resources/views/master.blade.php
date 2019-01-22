@@ -26,10 +26,11 @@
            </div>
         </header>
 
-        <nav class="navbar navbar-expand-md navbar-collapse-xs" id = "navbar">
+        <nav class="navbar  navwidht navbar-toggler navbar-expand-lg" id = "navbar">
          @yield('navbar')
-         <a class="navbar-brand text" href="#" ></a>
-         <ul class="navbar-nav">
+         <a class="navbar-brand text mx-auto" href="#" ></a>
+
+         <ul class="navbar-nav mx-auto ">
            <li class="nav-item active">
              <a class="nav-link text" href="/">Accueil</a>
            </li>
@@ -40,34 +41,24 @@
              <a class="nav-link text" href="/idees">Boite à idées</a>
            </li>
            
-           <li class="nav-item  ">
+           <li class="nav-item">
                 <a class="nav-link text" href="/boutique">Boutique</a>
             </li>
          </ul>
-         <ul class="navbar-nav navright"> 
+
+
+         <ul class="navbar-nav navright navbar-collapse "> 
             <li class="nav-item  ">
-                <a class="nav-link text" href="/boutique">Se connecter</a>
+                <a class="nav-link text" href="/login ">Se connecter</a>
             </li>
             <li class="nav-item  ">
-                    <a class="nav-link text" href="/boutique">Inscription</a>
+                    <a class="nav-link text" href="/register">Inscription</a>
             </li>
          </ul>
         </nav>
 
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))   
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            
 
             <div class="content">
                 <div class="title m-b-md">

@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('title')
-BDE Strasbourg
-<img src="{{ URL::to('/images/oui.jpg') }}">
+  <div class="">
+    Bienvenue à l'accueil
+  </div>
 @stop
 

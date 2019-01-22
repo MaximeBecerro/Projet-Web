@@ -11,6 +11,10 @@ html, body {
     height: 100vh;
 }
 
+.cfTritrePage{  
+    position: relative;
+}
+
 .flex-center {
     align-items: center;
     display: flex;
@@ -78,6 +82,10 @@ html, body {
     color:orange;
     transition: color 0.5s ease-in;
     animation: biggerandsmaller 1s infinite;
+}
+
+.navwidht{
+    width: 99.9vw;
 }
 
 .navright {
