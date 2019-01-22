@@ -16,10 +16,14 @@
 
     </head>
     <body>
-        <header class="header title flex-center">
-            @yield('header')
-                <img src="{{ URL::to('/images/logo.png') }} ">
+        <header class="header title flex-center row " >
+            <div class="col-md-1.5"> 
+                    <img src="{{ URL::to('/images/logo.png') }} ">
+            </div>
+            <div class="col-xs-2 col-md-6.5 flex-center"> 
+               
            BUREAU DES ELEVES CESI BORDEAUX
+           </div>
         </header>
 
         <nav class="navbar navbar-expand-md" id = "navbar">
@@ -42,11 +46,11 @@
         </nav>
 
         <div>
-            @yield('logo')
+            @yield('TitrePage')
         </div>
 
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Route::has('login'))   
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
