@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('content')
+@section('title')
 WTF LA BOUTIQUE
 @stop
 
