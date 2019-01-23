@@ -58,12 +58,16 @@ html, body {
 }
 
 .descriptionC {
-    margin-top: 20px;
+    
     font-size: calc(1vw + 1vh);
+    margin: 20px;
     color:black;
     
 }
 
+.positionindicator{
+    
+}
 
 .sizecarousel{
     top: 100px;

@@ -9,7 +9,7 @@
 
     <div id="carousel" class="carousel slide sizecarousel" data-ride="carousel">
 
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators positionindicator">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
@@ -19,28 +19,23 @@
       <div class="carousel-inner">
         <div class="carousel-item active" >
           <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="First slide" >
-          <div class="carousel-caption d-none d-md-block descriptionC">
-            <h5>Venez voir notre boutique de goodies</h5>
-          </div>    
+        
+            <h5 class="descriptionC">Venez voir notre boutique de goodies</h5>
+        
         </div>
+        
         <div class="carousel-item">
           <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="Second slide">
-          <div class="carousel-caption d-none d-md-block descriptionC">
-            <h5>Venez voir notre boutique de goodies </h5>
-          </div>  
+          <h5 class="descriptionC">Venez voir notre boutique de goodies</h5>
         </div>
         <div class="carousel-item">
           <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="Third slide">
-          <div class="carousel-caption d-none d-md-block descriptionC">
-            <h5>Venez voir notre boutique de goodies </h5>
-          </div>  
+          <h5 class="descriptionC">Venez voir notre boutique de goodies</h5>
         </div>
 
         <div class="carousel-item">
           <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="Fourth slide">
-          <div class="carousel-caption d-none d-md-block descriptionC">
-           <h5>Évènement à venir </h5>
-          </div>  
+          <h5 class="descriptionC">Évènemment à venir</h5>
         </div>
         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
