@@ -28,7 +28,7 @@
            </div>
         </header>
 
-        <nav class="navbar  navwidht navbar-toggler navbar-expand-lg" id = "navbar">
+        <nav class="navbar  navwidht navbar-collapse-xs navbar-toggler navbar-expand-lg" id = "navbar">
          @yield('navbar')
          <a class="navbar-brand text mx-auto" href="#" ></a>
 
@@ -50,13 +50,7 @@
 
 
          <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
+              
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -105,12 +99,11 @@
             </div>
         </nav>
 
-        <div class="flex-center position-ref full-height">
-            
-
+        <div class="position-ref full-height">
+        
             <div class="content">
-                <div class="title m-b-md">
-                    @yield('title')
+                <div class="m-t-md">
+                    @yield('content')
                 </div>
             </div>
         </div>
