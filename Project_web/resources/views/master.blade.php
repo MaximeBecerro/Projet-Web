@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
         <!-- Styles -->
         {{HTML::style("css/style.css")}}
@@ -109,8 +110,131 @@
 
     <footer class="footer">
         @yield('footer')
-        test footer
-        <img src="{{ URL::to('/images/oui.jpg') }}">
+        <footer class="page-footer font-small unique-color-dark">
+
+                <div style="background-color: #A9A9A9;">
+                  <div class="container">
+            
+                    <!-- Grid row-->
+                    <div class="footer-head row py-4 d-flex align-items-center">
+            
+                      <!-- Grid column -->
+                      <div class="footer-head col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0">Rejoignez nous sur les réseaux sociaux !</h6>
+                      </div>
+                      <!-- Grid column -->
+            
+                      <!-- Grid column -->
+                      <div class="col-md-6 col-lg-7 text-center text-md-right">
+            
+                        <!-- Facebook -->
+                        <a class="fb-ic" href="https://fr-fr.facebook.com/bdecesibdx/">
+                          <i class="fab fa-facebook-f white-text mr-4"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic" href="https://twitter.com/bdecesibordeaux">
+                          <i class="fab fa-twitter white-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic" href="https://www.instagram.com/bde_cesi_bdx/">
+                          <i class="fab fa-instagram white-text"> </i>
+                        </a>
+            
+                      </div>
+                      <!-- Grid column -->
+            
+                    </div>
+                    <!-- Grid row-->
+            
+                  </div>
+                </div>
+            
+                <!-- Footer Links -->
+                <div class="container text-center text-md-left mt-5">
+            
+                  <!-- Grid row -->
+                  <div class="row mt-3">
+            
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+                      <!-- Content -->
+                      <h6 class="text-uppercase font-weight-bold">BDE Cesi Bordeaux</h6>
+                      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                      <p>On fait pas partie du BDE nouuuus ?
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2827.863941183876!2d-0.579220948548562!3d44.86506457899581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5528150e890055%3A0x83b09a60bc069e60!2s264+Boulevard+Godard%2C+33300+Bordeaux%2C+France!5e0!3m2!1sfr!2sae!4v1548249884699" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                      </p>
+            
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+                      <!-- Links -->
+                      <h6 class="text-uppercase font-weight-bold">place holder</h6>
+                      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                      <p>
+                        <a href="/boutique">La boutique</a>
+                      </p>
+                      <p>
+                        <a href="/idees">La boite à idéés</a>
+                      </p>
+                      <p>
+                        <a href="/evenements">Les évènements</a>
+                      </p>
+            
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+                      <!-- Links -->
+                      <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
+                      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                      <p>
+                        <a href="https://www.cesi.fr">Site du CESI</a>
+                      </p>
+                      <p>
+                        <a href="#!">WAKANDA FOREVER</a>
+                      </p>
+                      <p>
+                        <a href="#!">Help</a>
+                      </p>
+            
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            
+                      <!-- Links -->
+                      <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                      <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                      <p>
+                        <i class="fas fa-home mr-3"></i> 264 Boulevard Godard, 33300 Bordeaux, France</p>
+                      <p>
+                        <i class="fas fa-envelope mr-3"></i>communication@bdecesibordeaux.fr</p>
+                      <p>
+                        <i class="fas fa-phone mr-3"></i>06 47 25 64 27</p>
+            
+                    </div>
+                    <!-- Grid column -->
+            
+                  </div>
+                  <!-- Grid row -->
+            
+                </div>
+                <!-- Footer Links -->
+            
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3" href="/mentions_legales">Touts droits réservés : BDE CESI Bordeaux :
+                  <a href="/mentions_legales"> Mentions légales</a>
+                </div>
+                <!-- Copyright -->
+            
+              </footer>
     </footer> 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
