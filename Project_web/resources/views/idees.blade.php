@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title')
+@section('content')
 TELLEMENT D'IDEES WTF
 <ul class="list">
         @foreach ($centers as $center)
