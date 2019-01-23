@@ -7,15 +7,9 @@
 
   <div>
 
-    <div id="carousel" class="carousel slide sizecarousel" data-ride="carousel">
+    <div id="carousel" class="carousel slide sizecarousel" data-ride="carousel" data-interval="2000">
 
-        <ol class="carousel-indicators positionindicator">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1"></li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-            <li data-target="#carousel" data-slide-to="3"></li>
-          </ol>
-
+      
       <div class="carousel-inner">
         <div class="carousel-item active" >
           <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="First slide" >
@@ -47,11 +41,7 @@
           </a>
       </div>
 
-    <script>
-          $('carousel').carousel({
-        interval: 1;
-      })  
-    </script>
+    
   
     </div>
 
