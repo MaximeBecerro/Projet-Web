@@ -1,4 +1,6 @@
+@extends('master')
 @extends('layouts.app')
+
 
 @section('content')
 <div class="container">
@@ -38,6 +40,16 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                                <label for="centre" class="col-md-4 col-form-label text-md-right">{{ __('Centre') }}</label>
+                                <select class="form-control">
+                                    @foreach ($centers as $center)
+                                        <option value="{{$center->CenterID}}">{{$center->CenterName}}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                            </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

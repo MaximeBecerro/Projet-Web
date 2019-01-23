@@ -79,7 +79,9 @@ html, body {
 }
 
 #navbar, #navdown{
-    
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
     background-color: #000000;
 }
 

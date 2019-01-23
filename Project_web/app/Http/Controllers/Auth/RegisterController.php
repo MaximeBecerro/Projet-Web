@@ -57,7 +57,6 @@ class RegisterController extends Controller
 
     /**
      * Create a new user instance after a valid registration.
-     *
      * @param  array  $data
      * @return \App\User
      */
@@ -68,5 +67,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        $data=[
+            'centers'=> \DB::table('centers')->get()
+        ];
+        return view('auth.register', $data);
+
     }
 }
