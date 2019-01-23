@@ -5,6 +5,7 @@ html, body {
     font-weight: 200;
     height: 100vh;
     margin: 0;
+    
 }
 
 .full-height {
@@ -37,6 +38,7 @@ html, body {
 
 .title {
     
+    font-weight: bold;
     font-size: calc(1.5vw + 1.5vh);
     color:white;
 }
@@ -45,7 +47,35 @@ html, body {
     
     font-size: calc(1vw + 1vh);
     color:black;
+    font-weight: bold;
 }
+
+.description {
+    margin-top: 300px;
+    font-size: calc(1vw + 1vh);
+    color:black;
+    
+}
+
+.descriptionC {
+    
+    font-size: calc(1vw + 1vh);
+    margin: 20px;
+    color:black;
+    
+}
+
+.positionindicator{
+    
+}
+
+.sizecarousel{
+    top: 100px;
+    position: center;
+    
+
+}
+
 
 .text{
     font-size: 20px;
