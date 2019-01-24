@@ -26,7 +26,8 @@ Route::get('/idees', function () {
 });
 
 Route::get('/boutique', function () {
-    return view('boutique');
+    $products=DB::table('products')->get();
+    return view('boutique', compact('products'));
 });
 
 Auth::routes();
