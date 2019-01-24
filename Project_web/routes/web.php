@@ -40,3 +40,7 @@ Route::get('/admin', function () {
     $users=DB::table('users')->get();
     return view('admin', compact('users'));
 });
+
+Route::get('/mentions_legales', function () {
+    return view('mentions_legales');
+});
