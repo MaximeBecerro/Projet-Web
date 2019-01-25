@@ -44,3 +44,7 @@ Route::get('/admin', function () {
 Route::get('/mentions_legales', function () {
     return view('mentions_legales');
 });
+
+Route::get('/cgu', function () {
+    return view('cgu');
+});

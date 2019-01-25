@@ -42,6 +42,7 @@
 
                         <div class="form-group row">
                                 <label for="center" class="col-md-4 col-form-label text-md-right">{{ __('Centre') }}</label>
+                                <div class="col-md-6">
                                 <select class="form-control{{ $errors->has('center') ? ' is-invalid' : '' }}" style="text-transform:capitalize" name="center" value="{{ old('center') }}" required>
                                    <option value="">Choisissez un Centre</option>
                                     @foreach ($centers as $center)
@@ -70,6 +71,19 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('terms') ? ' has-error' : '' }}">
+                            <label>
+                                <input type="checkbox" class="form-control" name="terms" value="1" /> J'ai lu et accepté <a href="/mentions_legales"> les mentions légales</a>.
+                            </label>
+                              
+                            <div class="col-md-4">
+                                @if ($errors->has('terms'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('terms') }}</strong>
+                                </span>
+                                @endif
                             </div>
                         </div>
 
