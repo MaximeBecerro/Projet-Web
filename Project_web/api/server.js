@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 var express = require('express');
 var bodyParser = require("body-parser");
 var mysql = require('mysql');
@@ -42,6 +44,7 @@ function handle_database(req, res, opt, ext) {
         }
         console.log('connected as id ' + connection.threadId);
 
+        //Query for users
         if (opt == 0) {
             if (ext == "") {
                 connection.query("SELECT name, email, roleid FROM users", function (err, rows) {
@@ -56,32 +59,64 @@ function handle_database(req, res, opt, ext) {
             }
         }
 
+        //Query for products
         if (opt == 1) {
-            connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
-                connection.release();
-                if (!err) { res.json(rows); }
-            });
+            if (ext == "") {
+                connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            } else {
+                connection.query("SELECT " + ext + " FROM products", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            }
         }
 
+        //Query for ideas
         if (opt == 2) {
-            connection.query("SELECT IdeaContent, id FROM ideas", function (err, rows) {
-                connection.release();
-                if (!err) { res.json(rows); }
-            });
+            if (ext == "") {
+                connection.query("SELECT IdeaContent, id FROM ideas", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            } else {
+                connection.query("SELECT " + ext + " FROM ideas", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            }
         }
 
+        //Query for events
         if (opt == 3) {
-            connection.query("SELECT EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
-                connection.release();
-                if (!err) { res.json(rows); }
-            });
+            if (ext == "") {
+                connection.query("SELECT EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            } else {
+                connection.query("SELECT " + ext + " FROM events", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            }
         }
 
+        //Query for basket
         if (opt == 4) {
-            connection.query("SELECT Quantity, ProductID FROM basket", function (err, rows) {
-                connection.release();
-                if (!err) { res.json(rows); }
-            });
+            if (ext == "") {
+                connection.query("SELECT Quantity, ProductID FROM basket", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            } else {
+                connection.query("SELECT " + ext + " FROM basket", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            }
         }
 
         connection.on('error', function (err) {
@@ -91,6 +126,7 @@ function handle_database(req, res, opt, ext) {
     });
 }
 
+//Routes for users
 myRouter.route('/users').get(function (req, res) {
     handle_database(req, res, 0, "");
 })
@@ -99,43 +135,42 @@ myRouter.route('/users/:ext').get(function (req, res) {
     handle_database(req, res, 0, req.params.ext);
 })
 
+//Routes for products
 myRouter.route('/products').get(function (req, res) {
-    handle_database(req, res, 1);
+    handle_database(req, res, 1, "");
 })
 
+myRouter.route('/products/:ext').get(function (req, res) {
+    handle_database(req, res, 1, req.params.ext);
+})
+
+//Routes for ideas
 myRouter.route('/ideas').get(function (req, res) {
-    handle_database(req, res, 2);
+    handle_database(req, res, 2, "");
 })
 
+myRouter.route('/ideas/:ext').get(function (req, res) {
+    handle_database(req, res, 2, req.params.ext);
+})
+
+//Routes for events
 myRouter.route('/events').get(function (req, res) {
-    handle_database(req, res, 3);
+    handle_database(req, res, 3, "");
 })
 
+myRouter.route('/events/:ext').get(function (req, res) {
+    handle_database(req, res, 3, req.params.ext);
+})
+
+//Routes for basket
 myRouter.route('/basket').get(function (req, res) {
-    handle_database(req, res, 4);
+    handle_database(req, res, 4, "");
 })
 
+myRouter.route('/basket/:ext').get(function (req, res) {
+    handle_database(req, res, 4, req.params.ext);
+})
 
-
-/*myRouter.route('/users/:user_id')
-    .get(function (req, res) {
-        res.json({ message: "Vous souhaitez accéder aux informations de l'utilisateur n°", methode: req.method });
-    })
-
-myRouter.route('/products/:products_id')
-.get(function (req, res) {
-    res.json({ message: "Vous souhaitez accéder aux informations du produit n°", methode: req.method });
-})*/
-
-
-
-/*  .put(function(req,res){ 
-        res.json({message : "Vous souhaitez modifier les informations de l'utilisateur n°", methode : req.method});
-    })
-    .delete(function(req,res){ 
-    res.json({message : "Vous souhaitez supprimer l'utilisateur n°", methode : req.method});  
-    }); 
-*/
 
 app.use(myRouter);
 
@@ -169,5 +204,25 @@ var server = app.listen(port, hostname, function () {
     //DELETE
     .delete(function(req,res){
     res.json({message : "Suppression d'un utilisateur dans la liste", methode : req.method});
+    });
+*/
+
+/*myRouter.route('/users/:user_id')
+    .get(function (req, res) {
+        res.json({ message: "Vous souhaitez accéder aux informations de l'utilisateur n°", methode: req.method });
+    })
+
+myRouter.route('/products/:products_id')
+.get(function (req, res) {
+    res.json({ message: "Vous souhaitez accéder aux informations du produit n°", methode: req.method });
+})*/
+
+
+
+/*  .put(function(req,res){
+        res.json({message : "Vous souhaitez modifier les informations de l'utilisateur n°", methode : req.method});
+    })
+    .delete(function(req,res){
+    res.json({message : "Vous souhaitez supprimer l'utilisateur n°", methode : req.method});
     });
 */
