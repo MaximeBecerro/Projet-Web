@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var hostname = 'localhost';
 var port = 3000;
 var app = express();
+var ext;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,7 +34,7 @@ var myRouter = express.Router();
     })*/
 
 
-function handle_database(req, res, opt) {
+function handle_database(req, res, opt, ext) {
     pool.getConnection(function (err, connection) {
         if (err) {
             res.json({ "code": 100, "status": "Error in connection database" });
@@ -41,38 +42,45 @@ function handle_database(req, res, opt) {
         }
         console.log('connected as id ' + connection.threadId);
 
-        if(opt == 0){
-            connection.query("SELECT name, email, roleid FROM users", function (err, rows) {
-                connection.release();
-                if (!err) {res.json(rows);}
-            });
+        if (opt == 0) {
+            if (ext == "") {
+                connection.query("SELECT name, email, roleid FROM users", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            } else {
+                connection.query("SELECT " + ext + " FROM users", function (err, rows) {
+                    connection.release();
+                    if (!err) { res.json(rows); }
+                });
+            }
         }
 
-        if(opt == 1){
+        if (opt == 1) {
             connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
                 connection.release();
-                if (!err) {res.json(rows);}
+                if (!err) { res.json(rows); }
             });
         }
 
-        if(opt == 2){
+        if (opt == 2) {
             connection.query("SELECT IdeaContent, id FROM ideas", function (err, rows) {
                 connection.release();
-                if (!err) {res.json(rows);}
+                if (!err) { res.json(rows); }
             });
         }
 
-        if(opt == 3){
+        if (opt == 3) {
             connection.query("SELECT EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
                 connection.release();
-                if (!err) {res.json(rows);}
+                if (!err) { res.json(rows); }
             });
         }
 
-        if(opt == 4){
+        if (opt == 4) {
             connection.query("SELECT Quantity, ProductID FROM basket", function (err, rows) {
                 connection.release();
-                if (!err) {res.json(rows);}
+                if (!err) { res.json(rows); }
             });
         }
 
@@ -84,7 +92,11 @@ function handle_database(req, res, opt) {
 }
 
 myRouter.route('/users').get(function (req, res) {
-    handle_database(req, res, 0);
+    handle_database(req, res, 0, "");
+})
+
+myRouter.route('/users/:ext').get(function (req, res) {
+    handle_database(req, res, 0, req.params.ext);
 })
 
 myRouter.route('/products').get(function (req, res) {
@@ -103,36 +115,9 @@ myRouter.route('/basket').get(function (req, res) {
     handle_database(req, res, 4);
 })
 
-/*myRouter.route('/products')
-.get(function (req, res) {
-    connection.connect(function (err) {
-        if (err) throw err;
-        console.log("Connected :");
-        connection.query("SELECT ProductName, ProductPrice, ProductDescription FROM products", function (err, result) {
-            if (err) throw err;
-            console.log(result);
-            res.json(result); 
-        })
-    })
-})
-*/
 
-/*//Really necessary ?
-    //POST
-    .post(function(req,res){
-        res.json({message : "Ajoute un nouvel utilisateur à la liste", methode : req.method});
-    })
-    //PUT
-    .put(function(req,res){ 
-        res.json({message : "Mise à jour des informations d'un utilisateur dans la liste", methode : req.method});
-    })
-    //DELETE
-    .delete(function(req,res){ 
-    res.json({message : "Suppression d'un utilisateur dans la liste", methode : req.method});  
-    }); 
-*/
 
-myRouter.route('/users/:user_id')
+/*myRouter.route('/users/:user_id')
     .get(function (req, res) {
         res.json({ message: "Vous souhaitez accéder aux informations de l'utilisateur n°", methode: req.method });
     })
@@ -140,7 +125,7 @@ myRouter.route('/users/:user_id')
 myRouter.route('/products/:products_id')
 .get(function (req, res) {
     res.json({ message: "Vous souhaitez accéder aux informations du produit n°", methode: req.method });
-})
+})*/
 
 
 
@@ -157,3 +142,32 @@ app.use(myRouter);
 var server = app.listen(port, hostname, function () {
     console.log("Mon serveur fonctionne sur http://" + hostname + ":" + port + "\n");
 });
+
+/*myRouter.route('/products')
+.get(function (req, res) {
+    connection.connect(function (err) {
+        if (err) throw err;
+        console.log("Connected :");
+        connection.query("SELECT ProductName, ProductPrice, ProductDescription FROM products", function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+        })
+    })
+})
+*/
+
+/*//Really necessary ?
+    //POST
+    .post(function(req,res){
+        res.json({message : "Ajoute un nouvel utilisateur à la liste", methode : req.method});
+    })
+    //PUT
+    .put(function(req,res){
+        res.json({message : "Mise à jour des informations d'un utilisateur dans la liste", methode : req.method});
+    })
+    //DELETE
+    .delete(function(req,res){
+    res.json({message : "Suppression d'un utilisateur dans la liste", methode : req.method});
+    });
+*/
