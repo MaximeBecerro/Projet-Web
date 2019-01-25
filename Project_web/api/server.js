@@ -49,7 +49,7 @@ function handle_database(req, res, opt) {
         }
 
         if(opt == 1){
-            connection.query("SELECT ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
+            connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
                 connection.release();
                 if (!err) {res.json(rows);}
             });
