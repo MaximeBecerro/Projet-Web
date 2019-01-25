@@ -10,8 +10,28 @@ $recuperation = file_get_contents('http://localhost:3000/products');
 $productjs = json_decode($recuperation, true); 
 
 
+
 ?>
 
+<script>
+    baseUrl ='http://localhost:3000/products';
+    
+   $Recup(){
+    
+        var params = {
+            url: baseUrl,
+            method: 'GET'
+        };
+
+        $.ajax(params).done(function (response) {
+            
+            $(.ProductID).show;
+        }
+
+        )}
+
+
+</script>
 
 <div class="container">
             <div class="titlepage content">
@@ -27,10 +47,15 @@ $productjs = json_decode($recuperation, true);
 
 
                   @foreach ($products as $product)
+                  @php
+                  $image = $products->ProductImage;
+                  $lien = ("/images/" + $image + ".png");
+              @endphp
+           
                       
                   <div class="col-10 col-md-4 col-sm-6">
                     <div class="card mb-4 box-shadow">
-                      <img class="card-img-top" src="{{ URL::to('/images/logo.png') }}" alt="Card image cap">
+                      <img class="card-img-top" src="{{ URL::to('/images/logo.png') }} " alt="Card image cap">
                       <div class="card-body">
                         <p class="card-text" > {{$description = $product->ProductDescription}}</p>
                         <div class="d-flex justify-content-between align-items-center">
