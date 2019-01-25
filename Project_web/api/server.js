@@ -49,7 +49,7 @@ function handle_database(req, res, opt) {
         }
 
         if(opt == 1){
-            connection.query("SELECT ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
+            connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
                 connection.release();
                 if (!err) {res.json(rows);}
             });
@@ -69,7 +69,7 @@ function handle_database(req, res, opt) {
             });
         }
 
-        if(opt == ){
+        if(opt == 4){
             connection.query("SELECT Quantity, ProductID FROM basket", function (err, rows) {
                 connection.release();
                 if (!err) {res.json(rows);}
@@ -100,7 +100,7 @@ myRouter.route('/events').get(function (req, res) {
 })
 
 myRouter.route('/basket').get(function (req, res) {
-    handle_database(req, res, 3);
+    handle_database(req, res, 4);
 })
 
 /*myRouter.route('/products')
