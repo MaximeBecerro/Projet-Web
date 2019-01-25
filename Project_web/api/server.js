@@ -42,18 +42,39 @@ function handle_database(req, res, opt) {
         console.log('connected as id ' + connection.threadId);
 
         if(opt == 0){
-        connection.query("SELECT name, email, roleid FROM users", function (err, rows) {
-            connection.release();
-            if (!err) {res.json(rows);}
-        });
-    }
+            connection.query("SELECT name, email, roleid FROM users", function (err, rows) {
+                connection.release();
+                if (!err) {res.json(rows);}
+            });
+        }
 
-    if(opt == 1){
-        connection.query("SELECT ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
-            connection.release();
-            if (!err) {res.json(rows);}
-        });
-    }
+        if(opt == 1){
+            connection.query("SELECT ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
+                connection.release();
+                if (!err) {res.json(rows);}
+            });
+        }
+
+        if(opt == 2){
+            connection.query("SELECT IdeaContent, id FROM ideas", function (err, rows) {
+                connection.release();
+                if (!err) {res.json(rows);}
+            });
+        }
+
+        if(opt == 3){
+            connection.query("SELECT EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
+                connection.release();
+                if (!err) {res.json(rows);}
+            });
+        }
+
+        if(opt == ){
+            connection.query("SELECT Quantity, ProductID FROM basket", function (err, rows) {
+                connection.release();
+                if (!err) {res.json(rows);}
+            });
+        }
 
         connection.on('error', function (err) {
             res.json({ "code": 100, "status": "Error in connection database" });
@@ -62,13 +83,24 @@ function handle_database(req, res, opt) {
     });
 }
 
-
 myRouter.route('/users').get(function (req, res) {
     handle_database(req, res, 0);
 })
 
 myRouter.route('/products').get(function (req, res) {
     handle_database(req, res, 1);
+})
+
+myRouter.route('/ideas').get(function (req, res) {
+    handle_database(req, res, 2);
+})
+
+myRouter.route('/events').get(function (req, res) {
+    handle_database(req, res, 3);
+})
+
+myRouter.route('/basket').get(function (req, res) {
+    handle_database(req, res, 3);
 })
 
 /*myRouter.route('/products')
