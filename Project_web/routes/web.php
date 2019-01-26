@@ -20,10 +20,7 @@ Route::get('/evenements', function () {
     return view('evenements');
 });
 
-Route::get('/idees', function () {
-    $centers=DB::table('centers')->get();
-    return view('idees',compact('centers'));
-});
+Route::get('idees', 'ApiController@store');
 
 Route::get('/boutique', function () {
     $products=DB::table('products')->get();
