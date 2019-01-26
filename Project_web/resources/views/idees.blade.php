@@ -9,10 +9,18 @@
             <div class="row">
                     @php
                         $json = json_decode(file_get_contents('http://localhost:3000/ideas'), true);
-                        echo($json[0]["IdeaContent"]);
-                        /*foreach ($json[0] as $coucou){
-                            echo $coucou{''};
-                        }*/
+                        foreach ($json as $IdeaContent => $id) {
+                            echo '<div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                <p class="card-text">' . $id['IdeaContent'] . '</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>';
+                        }
+                
+                        
+
                         @endphp
 
             </div>
