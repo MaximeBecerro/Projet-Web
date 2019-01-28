@@ -1,6 +1,6 @@
-@extends('master')
+@extends('master') <!-- Récupération du master -->
 
-@section('content')
+@section('content') <!-- Modification du content -->
     <div class="mentions">
         <p style="text-align:center">MENTIONS LEGALES :</p>
         
@@ -11,7 +11,7 @@
         <p style="text-align:justify">Statut du propriétaire : <strong>particulier</strong><br />
         Le Propriétaire est : <strong>BDE CESI Bordeaux</strong><br />
         Adresse postale du propriétaire : <strong>264 Boulevard Godard 33000 Bordeaux</strong><br />
-         <br />
+        <br />
         Le Créateur du site est : <strong>BDE CESI Bordeaux</strong><br />
         Le Responsable de la  publication est : <strong>BDE CESI Bordeaux</strong><br />
         Contacter le responsable de la publication : <strong>communication@bdecesibordeaux.fr</strong><br />

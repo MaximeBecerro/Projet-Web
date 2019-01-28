@@ -1,12 +1,12 @@
-@extends('master')
+@extends('master') <!-- Récupération du master -->
 
-@section('content')
+@section('content') <!-- Modification du content -->
     <div class="cgu">  
         <p style="text-align:center"><strong> CONDITIONS GENERALES D'UTILISATION :</strong></p>
         <p style="text-align:justify">Le présent document a pour objet de définir les modalités et conditions dans lesquelles d’une part,  BDE CESI Bordeaux, ci-après dénommé l’EDITEUR, met à la disposition de ses utilisateurs le site, et les services disponibles sur le site et d’autre part, la manière par laquelle l’utilisateur accède au site et utilise ses services.<br />
                 Toute connexion au site est subordonnée au respect des présentes conditions.<br />
                 Pour l’utilisateur, le simple accès au site de l’EDITEUR à l’adresse URL suivante http://127.0.0.1:8000/  implique l’acceptation de l’ensemble des conditions décrites ci-après.<br />
-         </p>
+        </p>
         
         <p style="text-align:justify"><strong>Propriété intellectuelle : </strong> </p>
         <p style="text-align:justify">Aucune reproduction, même partielle prévue à l’article L.122-5 du Code de la propriété intellectuelle, ne peut être faite de ce site sans l’autorisation du directeur de publication. </p>

@@ -1,11 +1,11 @@
-@extends('master')
+@extends('master') <!-- Récupération du master -->
 
-@section('content')
+@section('content') <!-- Modification du content -->
 test
 <ul>
-    @foreach ($users as $user)
+    @foreach ($users as $user) <!-- Pour chaque utilisateur -->
     <li>
-        <a href="{{ url('/admin/' . $user->id)}}">
+        <a href="{{ url('/admin/' . $user->id)}}"> <!-- Récupère les noms et mails des utilisateurs -->
             {{$user->name}}, {{$user->email}}
             
         </a>

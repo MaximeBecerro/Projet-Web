@@ -1,12 +1,12 @@
-@extends('master')
+@extends('master') <!-- Récupération du master -->
 
 
-@section('content')
+@section('content') <!-- Modification du content -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Register') }}</div> <!-- Titre du contenu -->
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
