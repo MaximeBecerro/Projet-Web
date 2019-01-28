@@ -20,6 +20,10 @@ Route::get('/evenements', function () {
     return view('evenements');
 });
 
+Route::get('/evenementspassé', function () {
+    return view('evenementspassé');
+});
+
 Route::get('idees', 'ApiController@store');
 
 Route::get('/boutique', function () {
