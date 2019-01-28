@@ -7,9 +7,11 @@
 <main role="main">
     @php
     $userId = Auth::id();
-    $user = Auth::user()->roleid;
     @endphp
     @if (Auth::check())
+    @php
+    $user = Auth::user()->roleid;
+    @endphp
     <form>
         <div class="col-md-24 flex-center">
             <div class="form-group">
