@@ -17,9 +17,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="First slide">
-
         <h5 class="descriptionC">Venez voir notre boutique de goodies</h5>
-
       </div>
 
       <div class="carousel-item">
@@ -32,8 +30,30 @@
       </div>
 
       <div class="carousel-item">
-        <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="Fourth slide">
-        <h5 class="descriptionC">Évènemment à venir</h5>
+        <div class="container">
+          <div class="row">
+            @php
+            $json = json_decode(file_get_contents('http://localhost:3000/events'), true);
+            $count = 0;
+            foreach (array_reverse($json) as $EventID => $id) {
+              if($count <= 3){
+                $count = $count + 1;
+                if($id['EventDate'] > date("Y-m-d")){
+                  echo '<div class="card mx-auto" style="width: 18rem;">
+                          <div class="card-body">
+                            <p class="card-text">' . $id['EventImage'] . '</p>
+                          </div>
+                          <div class="card-body">
+                            <a class="card-text">' . $id['EventDate'] . '</a>
+                          </div>
+                        </div>';
+                }
+              }
+            }
+            @endphp
+          </div>
+        </div>
+          <h5 class="descriptionC">Évènement à venir</h5>
       </div>
       <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
