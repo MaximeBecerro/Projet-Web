@@ -4,28 +4,25 @@
 @section('content')
 <!-- Modification du content -->
 <div class="titlepage">
-  Bienvenue à l'accueil
+  Bienvenue
   <!-- Titre de la page -->
 </div>
 
 <div>
 
   <div id="carousel" class="carousel slide sizecarousel" data-ride="carousel" data-interval="2000">
-    <!-- Caroussel changeant entre les 3 produits les plus vendus et l'évènement du mois-->
+    <!-- Caroussel changeant entre les 2 produits les plus vendus et l'évènement du mois-->
 
 
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="First slide">
-        <h5 class="descriptionC">Venez voir notre boutique de goodies</h5>
-      </div>
+      
 
-      <div class="carousel-item">
-        <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="Second slide">
+      <div class="carousel-item active">
+        <img class="block w-50" src="{{ URL::to('/images/pull2.jpg') }}" alt="Second slide">
         <h5 class="descriptionC">Venez voir notre boutique de goodies</h5>
       </div>
       <div class="carousel-item">
-        <img class="block w-50" src="{{ URL::to('/images/logo.png') }}" alt="Third slide">
+        <img class="block w-50" src="{{ URL::to('/images/stylo.jpg') }}" alt="Third slide">
         <h5 class="descriptionC">Venez voir notre boutique de goodies</h5>
       </div>
 
@@ -36,7 +33,7 @@
             $json = json_decode(file_get_contents('http://localhost:3000/events'), true);
             $count = 0;
             foreach (array_reverse($json) as $EventID => $id) {
-              if($count <= 3){
+              if($count <= 2){
                 $count = $count + 1;
                 if($id['EventDate'] > date("Y-m-d")){
                   echo '<div class="card mx-auto" style="width: 18rem;">
