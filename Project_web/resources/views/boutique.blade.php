@@ -18,10 +18,35 @@
                     // Récupération du fichier json
                     $json = json_decode(file_get_contents('http://localhost:3000/products'), true)
 
-                    // $image = {{$id['ProductImage']}};
-                    // $lien = ("/images/" + $image + ".png");
+                            @foreach ($json as $ProductID => $id)
 
-                    @endphp
+                            @php
+                   
+                             projetweb::table('basket')=>insert (['id' => 1, 'Quantity' => 1, 'ProductID' => 1]);
+                           
+                            @endphp    
+                            
+                              
+                            <!-- Affichage des produits en fonctione de la base de données -->
+                             <div class="col-10 col-md-4 col-sm-6">
+                                <div class="card mb-4 box-shadow">
+                                    <!-- Affichage de l'image -->
+                                    <h5 class="" id="exampleModalLongTitle">{{$id['ProductName']}}</h5>
+                                    <img class="card-img-top" src="{{$id['ProductImage']}} " alt="Card image cap">
+                                    <div class="card-body">
+                                        <!-- Récupération et affichage de la description -->
+                                        <p class="card-text" > {{$id['ProductDescription']}}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+
+                                                <!-- Bouton d'achat qui ajoute au panier -->
+                                                <button type="button" class="btn btn  btn-outline-secondary" data-toggle="modal" onclick="{{ $request  }}" data-target="#popup">
+                                           
+                                                Achat
+
+                                                </button> 
+                                                <!-- Bouton permettant de signaler un produit -->
+                                                <button type="button" class="btn btn  btn-outline-secondary" data-toggle="modal" data-target="#popup">Signaler  </button> 
 
                     @foreach ($json as $ProductID => $id)
 

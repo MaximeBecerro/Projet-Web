@@ -45,3 +45,8 @@ Route::get('/mentions_legales', function () {
 Route::get('/cgu', function () {
     return view('cgu');
 });
+
+
+Route::get('/cart', function () {
+    return view('/cart');
+});
