@@ -154,23 +154,7 @@ var server = app.listen(port, hostname, function () {
     console.log("Mon serveur fonctionne sur http://" + hostname + ":" + port + "\n");
 });
 
-function httpGet(theUrl) {
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            createDiv(xmlhttp.responseText);
-        }
-    }
-    xmlhttp.open("GET", theUrl, false);
-    xmlhttp.send();
-}
-
-var html = httpGet('http://localhost:3000/users/name');
+var html = 'http://localhost:3000/users/name';
 
 //  Fonction permettant de télécharger la liste des inscrits
 //   param : err, res
