@@ -12,14 +12,16 @@
                     // Récupération de données via l'API
                     foreach (array_reverse($json) as $EventID => $id) {
                     // Pour chaque évènement, création d'une carte
-                    echo '<div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="card-text">' . $id['EventID'] . '</p>
-                            <a class="card-text">' . $id['EventDate'] . '</a>
-                        
+                        if($id['EventDate'] > date("Y-m-d")){
+                            echo '<div class="card" style="width: 18rem;">
+                                <img class="card-img-top">' . $id['EventImage'] . '</img>
+                                <div class="card-body">
+                                    <p class="card-text">' . $id['EventID'] . '</p>
+                                    <a class="card-text">' . $id['EventDate'] . '</a>
 
-                        </div>
-                    </div>';
+                                </div>
+                            </div>';
+                        }
                     }
                     @endphp
                 </div>
