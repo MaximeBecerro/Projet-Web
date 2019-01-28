@@ -1,13 +1,17 @@
 @extends('master')
 
-@section('content')
-
 
 @php
 // Récupération du fichier json
 $json = json_decode(file_get_contents('http://localhost:3000/products'), true)
 
+
+//{{route ('ProduitCart')}}
 @endphp
+
+
+@section('content')
+
 
 
 <div class="container">
@@ -23,20 +27,16 @@ $json = json_decode(file_get_contents('http://localhost:3000/products'), true)
                     
                     
                             @foreach ($json as $ProductID => $id)
-
-                            @php
-                   
-                           
-                            @endphp    
-                            
                               
                             <!-- Affichage des produits en fonctione de la base de données -->
                              <div class="col-10 col-md-4 col-sm-6">
                                 <div class="card mb-4 box-shadow">
+
                                     <!-- Affichage de l'image -->
                                     <h5 class="" id="exampleModalLongTitle">{{$id['ProductName']}}</h5>
                                     <img class="card-img-top" src="{{$id['ProductImage']}} " alt="Card image cap">
                                     <div class="card-body">
+
                                         <!-- Récupération et affichage de la description -->
                                         <p class="card-text" > {{$id['ProductDescription']}}</p>
                                         <div class="d-flex justify-content-between align-items-center">

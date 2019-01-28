@@ -26,6 +26,8 @@ Route::get('/evenementspassé', function () {
 
 Route::get('idees', 'ApiController@store');
 
+Route::post('ProduitCart', 'Cart@requete');
+
 Route::get('/boutique', function () {
     $products=DB::table('products')->get();
     return view('boutique', compact('products'));
@@ -36,6 +38,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+
 
 Route::get('/admin', function () {
     $users=DB::table('users')->get();
