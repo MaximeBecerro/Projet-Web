@@ -74,7 +74,7 @@ function handle_database(req, res, opt, ext) {
         }
         if (opt == 3) {
             if (ext == "") {
-                connection.query("SELECT EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
+                connection.query("SELECT EventID, EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
                     connection.release();
                     if (!err) { res.json(rows); }
                 });

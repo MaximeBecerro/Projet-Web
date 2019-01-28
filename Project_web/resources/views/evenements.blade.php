@@ -3,8 +3,27 @@
 
 @section('content')
 <!-- Modification du content -->
-youhou les evenements
-<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbdecesibdx&tabs=timeline&width=640&height=320&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1517550835044508"
-    width="640" height="320" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
-    allow="encrypted-media"></iframe>
+<main role="main">
+        <div class="album py-5 ">
+            <div class="container">
+                <div class="row">
+                    @php
+                    $json = json_decode(file_get_contents('http://localhost:3000/events'), true);
+                    // Récupération de données via l'API
+                    foreach (array_reverse($json) as $EventID => $id) {
+                    // Pour chaque évènement, création d'une carte
+                    echo '<div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text">' . $id['EventID'] . '</p>
+                            <a class="card-text">' . $id['EventDate'] . '</a>
+                        
+
+                        </div>
+                    </div>';
+                    }
+                    @endphp
+                </div>
+            </div>
+        </div>
+    </main>
 @stop
