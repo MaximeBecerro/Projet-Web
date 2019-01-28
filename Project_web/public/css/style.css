@@ -138,6 +138,11 @@ html, body {
     margin-left: 70rem ;
 }
 
+.card {
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
 
 @keyframes biggerandsmaller {
     0% {

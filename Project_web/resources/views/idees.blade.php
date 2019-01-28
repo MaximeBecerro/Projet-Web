@@ -2,14 +2,13 @@
 
 @section('content')
 
-<main role="main">
-          
+<main role="main">     
     <div class="album py-5 ">
         <div class="container">
             <div class="row">
                     @php
                         $json = json_decode(file_get_contents('http://localhost:3000/ideas'), true);
-                        foreach ($json as $IdeaContent => $id) {
+                        foreach (array_reverse($json) as $IdeaContent => $id) {
                             echo '<div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                 <p class="card-text">' . $id['IdeaContent'] . '</p>
@@ -18,11 +17,7 @@
                                 </div>
                             </div>';
                         }
-                
-                        
-
                         @endphp
-
             </div>
         </div>
     </div>
