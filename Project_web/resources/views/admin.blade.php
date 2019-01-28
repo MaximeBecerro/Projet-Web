@@ -14,14 +14,13 @@ test
 
         </a>
         <a>
-            <label class="radio-inline"><input type="radio" name="optradio[{{$user->id}}]" checked>BDE member</label>
-
+            <label id="BDE member" class="radio-inline"><input type="radio" name="optradio[{{$user->id}}]" checked>Membre du BDE</label>
         </a>
         <a>
-            <label class="radio-inline"><input type="radio" name="optradio[{{$user->id}}]">CESI employee</label>
+            <label class="radio-inline"><input type="radio" name="optradio[{{$user->id}}]">Employé(e) du CESI</label>
         </a>
         <a>
-            <label class="radio-inline"><input type="radio" name="optradio[{{$user->id}}]">Student</label>
+            <label class="radio-inline"><input type="radio" name="optradio[{{$user->id}}]">Étudiant(e)</label>
         </a>
     </li>
     @endforeach

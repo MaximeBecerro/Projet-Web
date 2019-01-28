@@ -67,7 +67,19 @@
         <a class="nav-link text" href="/">Accueil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text" href="/evenements">Événement</a>
+        <li id="navbarDropdown">
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" v-pre>Évènement</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id='navdown'>
+            <li>
+              <a class="dropdown-item text" href="/evenements">Événement actuel</a>
+            </li>
+            <li>
+              <a class="dropdown-item text" href="/evenementspassé">Événement passé</a>
+            </li>
+        </ul>
+        </li>
       </li>
       <li class="nav-item">
         <a class="nav-link text" href="/idees">Boite à idées</a>
