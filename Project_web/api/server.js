@@ -9,7 +9,6 @@ var app = express();
 var ext;
 var fs = require('fs');
 var pdf = require('html-pdf');
-//var html = fs.readFileSync('./test/businesscard.html', 'utf8');
 var options = { format: 'Letter' };
 
 app.use(bodyParser.json());
@@ -34,7 +33,6 @@ function handle_database(req, res, opt, ext) {
             return;
         }
         console.log('connected as id ' + connection.threadId);
-
         if (opt == 0) {
             if (ext == "") {
                 connection.query("SELECT name, email, roleid FROM users", function (err, rows) {
@@ -48,12 +46,6 @@ function handle_database(req, res, opt, ext) {
                 });
             }
         }
-
-        myRouter.route('/users/:user_id')
-            .get(function (req, res) {
-                res.json({ message: "Vous souhaitez accéder aux informations de l'utilisateur n°", methode: req.method });
-            })
-
         if (opt == 1) {
             if (ext == "") {
                 connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription, ProductImage FROM products", function (err, rows) {
@@ -67,7 +59,6 @@ function handle_database(req, res, opt, ext) {
                 });
             }
         }
-
         if (opt == 2) {
             if (ext == "") {
                 connection.query("SELECT IdeaContent, id FROM ideas", function (err, rows) {
@@ -81,7 +72,6 @@ function handle_database(req, res, opt, ext) {
                 });
             }
         }
-
         if (opt == 3) {
             if (ext == "") {
                 connection.query("SELECT EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
@@ -95,7 +85,6 @@ function handle_database(req, res, opt, ext) {
                 });
             }
         }
-
         if (opt == 4) {
             if (ext == "") {
                 connection.query("SELECT Quantity, ProductID FROM basket", function (err, rows) {
@@ -109,7 +98,6 @@ function handle_database(req, res, opt, ext) {
                 });
             }
         }
-
         connection.on('error', function (err) {
             res.json({ "code": 100, "status": "Error in connection database" });
             return;
@@ -132,7 +120,6 @@ myRouter.route('/products').get(function (req, res) {
 myRouter.route('/products/:ext').get(function (req, res) {
     handle_database(req, res, 1, req.params.ext);
 })
-
 
 myRouter.route('/ideas').get(function (req, res) {
     handle_database(req, res, 2, "");
@@ -167,16 +154,31 @@ var server = app.listen(port, hostname, function () {
     console.log("Mon serveur fonctionne sur http://" + hostname + ":" + port + "\n");
 });
 
+function httpGet(theUrl) {
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            createDiv(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET", theUrl, false);
+    xmlhttp.send();
+}
+
+var html = httpGet('http://localhost:3000/users/name');
+
 //  Fonction permettant de télécharger la liste des inscrits
 //   param : err, res
 //  return : une erreur 404 si erreur
-
-/*pdf.create(html, options).toFile('./usersList.pdf', function (err, res) {
+pdf.create(html, options).toFile('./usersList.pdf', function (err, res) {
     if (err) return console.log(err);
     console.log(res); // { filename: '/app/businesscard.pdf' }
-});*/
-
-
+});
 
 myRouter.route('/users/:user_id')
     .get(function (req, res) {
@@ -187,6 +189,3 @@ myRouter.route('/products/:products_id')
     .get(function (req, res) {
         res.json({ message: "Vous souhaitez accéder aux informations du produit n°", methode: req.method });
     })
-
-
-
