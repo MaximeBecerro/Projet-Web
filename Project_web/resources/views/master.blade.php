@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,14 +11,17 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
 
   <!-- Styles -->
   {{HTML::style("css/style.css")}}
-        
+
 
 </head>
+
 <body>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -27,8 +31,8 @@
       param : aucun
       return : rien
     */
-    window.addEventListener("load", function(){
-       window.cookieconsent.initialise({
+    window.addEventListener("load", function () {
+      window.cookieconsent.initialise({
         "palette": {
           "popup": {
             "background": "#000"
@@ -45,18 +49,20 @@
       })
     });
   </script>
-  <header class="header title flex-center row " > 
-    <div class="col-md-1.5"> 
+  <header class="header title flex-center row ">
+    <div class="col-md-1.5">
       <img src="{{ URL::to('/images/logo.png') }} "> <!-- Image accompagnant le header -->
     </div>
-    <div class="col-xs-2 col-md-6.5 flex-center"> 
-      Bureau des élèves CESI Bordeaux <!-- Header en haut du site -->
+    <div class="col-xs-2 col-md-6.5 flex-center">
+      Bureau des élèves CESI Bordeaux
+      <!-- Header en haut du site -->
     </div>
   </header>
 
-  <nav class="navbar navwidht navbar-collapse-xs navbar-toggler navbar-expand-lg " id = "navbar">  
-    <a class="navbar-brand text" href="#" ></a>
-    <ul class="navbar-nav mr-auto "> <!-- Contenu de la navbar -->
+  <nav class="navbar navwidht navbar-collapse-xs navbar-toggler navbar-expand-lg " id="navbar">
+    <a class="navbar-brand text" href="#"></a>
+    <ul class="navbar-nav mr-auto ">
+      <!-- Contenu de la navbar -->
       <li class="nav-item active">
         <a class="nav-link text" href="/">Accueil</a>
       </li>
@@ -69,26 +75,29 @@
       <li class="nav-item">
         <a class="nav-link text" href="/boutique">Boutique</a>
       </li>
-    </ul> 
-    <ul class="navbar-nav ml-auto">     
-      @guest <!-- Si la personne n'est pas connectée -->
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      @guest
+      <!-- Si la personne n'est pas connectée -->
       <li class="nav-item">
         <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }} </a>
       </li>
       @if (Route::has('register'))
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('register') }}">{{ __("S'enregister") }}</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}">{{ __("S'enregister") }}</a>
+      </li>
       @endif
-      @else <!-- Si la personne est connectée -->
+      @else
+      <!-- Si la personne est connectée -->
       @auth
       <div class="dropdown-menu" role="button" aria-labelledby="navbarDropdownMenuLink3"></div>
       @endauth
       <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" v-pre>
           {{ Auth::user()->name }} <span class="caret"></span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id= 'navdown'>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id='navdown'>
           <a class="dropdown-item text" href="/logout">Déconnexion</a>
           <a class="dropdown-item text" href="">Notification</a>
           <a class="dropdown-item text" href="/basket">Panier</a>
@@ -104,13 +113,15 @@
   <div class="full-height">
     <div class="content">
       <div class="m-t-md">
-        @yield('content') <!-- A appeller pour rajouter du contenu -->
+        @yield('content')
+        <!-- A appeller pour rajouter du contenu -->
       </div>
     </div>
   </div>
 
-  
-  <footer class="page-footer font-small unique-color-dark footer"> <!-- Contenu du footer -->
+
+  <footer class="page-footer font-small unique-color-dark footer">
+    <!-- Contenu du footer -->
     <div style="background-color: #A9A9A9;">
       <div class="container">
 
@@ -161,7 +172,8 @@
           <h6 class="text-uppercase font-weight-bold">BDE Cesi Bordeaux</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           <p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2827.863941183876!2d-0.579220948548562!3d44.86506457899581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5528150e890055%3A0x83b09a60bc069e60!2s264+Boulevard+Godard%2C+33300+Bordeaux%2C+France!5e0!3m2!1sfr!2sae!4v1548249884699" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2827.863941183876!2d-0.579220948548562!3d44.86506457899581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5528150e890055%3A0x83b09a60bc069e60!2s264+Boulevard+Godard%2C+33300+Bordeaux%2C+France!5e0!3m2!1sfr!2sae!4v1548249884699"
+              width="200" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
           </p>
 
         </div>
@@ -232,11 +244,14 @@
       <a href="/mentions_legales"> Mentions légales</a>
     </div>
     <!-- Copyright -->
-  </footer> 
-    @yield('script')
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </footer>
+  @yield('script')
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
 </body>
-   
+
 </html>
