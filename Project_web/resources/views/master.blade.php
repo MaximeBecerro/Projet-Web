@@ -89,9 +89,9 @@
           {{ Auth::user()->name }} <span class="caret"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id= 'navdown'>
-          <a class="dropdown-item" href="/logout">Déconnexion</a>
-          <a class="dropdown-item" href="">Notification</a>
-          <a class="dropdown-item" href="/basket">Panier</a>
+          <a class="dropdown-item text" href="/logout">Déconnexion</a>
+          <a class="dropdown-item text" href="">Notification</a>
+          <a class="dropdown-item text" href="/basket">Panier</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
           </form>
