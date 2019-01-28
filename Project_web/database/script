@@ -1,0 +1,270 @@
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Centers`
+
+CREATE TABLE `Centers`
+(
+ `centerid`   int NOT NULL AUTO_INCREMENT ,
+ `CenterName` varchar(50) NOT NULL ,
+PRIMARY KEY (`centerid`)
+);
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Roles`
+
+CREATE TABLE `Roles`
+(
+ `roleid` int NOT NULL AUTO_INCREMENT ,
+ `Role`   varchar(50) NOT NULL ,
+PRIMARY KEY (`roleid`)
+);
+
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Ideas`
+
+CREATE TABLE `Ideas`
+(
+ `IdeaID`      int NOT NULL AUTO_INCREMENT ,
+ `IdeaContent` varchar(500) NOT NULL ,
+ `id`          int NOT NULL ,
+PRIMARY KEY (`IdeaID`),
+KEY `fkIdx_204` (`id`),
+CONSTRAINT `FK_204` FOREIGN KEY `fkIdx_204` (`id`) REFERENCES `users` (`id`)
+);
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `IdeasLikes`
+
+CREATE TABLE `IdeasLikes`
+(
+ `IdeaID` int NOT NULL ,
+ `id`     int NOT NULL ,
+PRIMARY KEY (`id`, `IdeaID`),
+KEY `fkIdx_208` (`IdeaID`),
+CONSTRAINT `FK_208` FOREIGN KEY `fkIdx_208` (`IdeaID`) REFERENCES `Ideas` (`IdeaID`),
+KEY `fkIdx_211` (`id`),
+CONSTRAINT `FK_211` FOREIGN KEY `fkIdx_211` (`id`) REFERENCES `users` (`id`)
+);
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Events`
+
+CREATE TABLE `Events`
+(
+ `EventID`           int NOT NULL AUTO_INCREMENT ,
+ `EventDate`         date NOT NULL ,
+ `EventImage`        varchar(70) NOT NULL ,
+ `EventDescription`  varchar(500) NOT NULL ,
+ `LocationLatitude`  float NOT NULL ,
+ `LocationLongitude` float NOT NULL ,
+ `Recurring`         tinyint NOT NULL ,
+ `Fee`               float NOT NULL ,
+ `EventHidden`       tinyint NOT NULL ,
+PRIMARY KEY (`EventID`)
+);
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Participants`
+
+CREATE TABLE `Participants`
+(
+ `EventID` int NOT NULL ,
+ `id`      int NOT NULL ,
+PRIMARY KEY (`EventID`, `id`),
+KEY `fkIdx_156` (`EventID`),
+CONSTRAINT `FK_156` FOREIGN KEY `fkIdx_156` (`EventID`) REFERENCES `Events` (`EventID`),
+KEY `fkIdx_159` (`id`),
+CONSTRAINT `FK_159` FOREIGN KEY `fkIdx_159` (`id`) REFERENCES `users` (`id`)
+);
+
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Pictures`
+
+CREATE TABLE `Pictures`
+(
+ `PictureID` int NOT NULL AUTO_INCREMENT,
+ `EventID`  int NOT NULL ,
+ `Picture`  varchar(70) NOT NULL ,
+ `id`  int NOT NULL ,
+ `PictureDate`  date NOT NULL ,
+ `PictureHidden`  tinyint NOT NULL ,
+PRIMARY KEY (`PictureID`),
+KEY `fkIdx_167` (`EventID`),
+CONSTRAINT `FK_167` FOREIGN KEY `fkIdx_167` (`EventID`) REFERENCES `Events` (`EventID`),
+KEY `fkIdx_263` (`id`),
+CONSTRAINT `FK_263` FOREIGN KEY `fkIdx_263` (`id`) REFERENCES `users` (`id`)
+);
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Comments`
+
+CREATE TABLE `Comments`
+(
+ `CommentID`      int NOT NULL AUTO_INCREMENT ,
+ `CommentContent` varchar(500) NOT NULL ,
+ `id`             int NOT NULL ,
+ `PictureID`      int NOT NULL ,
+ `CommentHidden`  tinyint NOT NULL ,
+PRIMARY KEY (`CommentID`),
+KEY `fkIdx_189` (`id`),
+CONSTRAINT `FK_189` FOREIGN KEY `fkIdx_189` (`id`) REFERENCES `users` (`id`),
+KEY `fkIdx_195` (`PictureID`),
+CONSTRAINT `FK_195` FOREIGN KEY `fkIdx_195` (`PictureID`) REFERENCES `Pictures` (`PictureID`)
+);
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `PicturesLikes`
+
+CREATE TABLE `PicturesLikes`
+(
+ `PictureID` int NOT NULL ,
+ `id`        int NOT NULL ,
+PRIMARY KEY (`PictureID`, `id`),
+KEY `fkIdx_177` (`PictureID`),
+CONSTRAINT `FK_177` FOREIGN KEY `fkIdx_177` (`PictureID`) REFERENCES `Pictures` (`PictureID`),
+KEY `fkIdx_180` (`id`),
+CONSTRAINT `FK_180` FOREIGN KEY `fkIdx_180` (`id`) REFERENCES `users` (`id`)
+);
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Products`
+
+CREATE TABLE `Products`
+(
+ `ProductID`          int NOT NULL AUTO_INCREMENT ,
+ `ProductName`        varchar(50) NOT NULL ,
+ `ProductPrice`       float NOT NULL ,
+ `ProductDescription` varchar(500) NOT NULL ,
+PRIMARY KEY (`ProductID`)
+);
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Categories`
+
+CREATE TABLE `Categories`
+(
+ `CategoryID`   int NOT NULL AUTO_INCREMENT ,
+ `CategoryName` varchar(50) NOT NULL ,
+PRIMARY KEY (`CategoryID`)
+);
+
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Products.Categories`
+
+CREATE TABLE `Products.Categories`
+(
+ `ProductID`  int NOT NULL ,
+ `CategoryID` int NOT NULL ,
+PRIMARY KEY (`ProductID`, `CategoryID`),
+KEY `fkIdx_227` (`ProductID`),
+CONSTRAINT `FK_227` FOREIGN KEY `fkIdx_227` (`ProductID`) REFERENCES `Products` (`ProductID`),
+KEY `fkIdx_230` (`CategoryID`),
+CONSTRAINT `FK_230` FOREIGN KEY `fkIdx_230` (`CategoryID`) REFERENCES `Categories` (`CategoryID`)
+);
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Basket`
+
+CREATE TABLE `Basket`
+(
+ `id`        int NOT NULL ,
+ `Quantity`  tinyint NOT NULL ,
+ `ProductID` int NOT NULL ,
+PRIMARY KEY (`id`, `ProductID`),
+KEY `fkIdx_245` (`id`),
+CONSTRAINT `FK_245` FOREIGN KEY `fkIdx_245` (`id`) REFERENCES `users` (`id`),
+KEY `fkIdx_249` (`ProductID`),
+CONSTRAINT `FK_249` FOREIGN KEY `fkIdx_249` (`ProductID`) REFERENCES `Products` (`ProductID`)
+);
+
+
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Notifications`
+
+CREATE TABLE `Notifications`
+(
+ `IdeaID` int NOT NULL ,
+ `id`     int NOT NULL ,
+PRIMARY KEY (`IdeaID`, `id`),
+KEY `fkIdx_268` (`IdeaID`),
+CONSTRAINT `FK_268` FOREIGN KEY `fkIdx_268` (`IdeaID`) REFERENCES `Ideas` (`IdeaID`),
+KEY `fkIdx_271` (`id`),
+CONSTRAINT `FK_271` FOREIGN KEY `fkIdx_271` (`id`) REFERENCES `users` (`id`)
+);
+
+
+
+
+ALTER TABLE users
+ADD FOREIGN KEY (centerid) REFERENCES Centers(centerid);
+
+ALTER TABLE users
+ADD FOREIGN KEY (roleid) REFERENCES Roles(roleid);
+
+ALTER TABLE users CHANGE roleid roleid INT(11) NOT NULL DEFAULT '1';
+
+ALTER TABLE products ADD ProductImage VARCHAR(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL AFTER ProductDescription;
+

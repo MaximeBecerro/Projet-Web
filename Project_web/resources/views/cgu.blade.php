@@ -3,8 +3,8 @@
 
 @section('content')
 <!-- Modification du content -->
-<div class="cgu">
-        <p style="text-align:center"><strong> CONDITIONS GENERALES D'UTILISATION :</strong></p>
+<div class="cgu" style="width: 800px; margin:0 auto">
+        <p style="text-align:center" class="titre"><strong>CONDITIONS GENERALES D'UTILISATION :</strong></p>
         <p style="text-align:justify">Le présent document a pour objet de définir les modalités et conditions dans
                 lesquelles d’une part, BDE CESI Bordeaux, ci-après dénommé l’EDITEUR, met à la disposition de ses
                 utilisateurs le site, et les services disponibles sur le site et d’autre part, la manière par laquelle
@@ -14,11 +14,11 @@
                 http://127.0.0.1:8000/ implique l’acceptation de l’ensemble des conditions décrites ci-après.<br />
         </p>
 
-        <p style="text-align:justify"><strong>Propriété intellectuelle : </strong> </p>
+        <p style="text-align:center" class="soustitre"><strong>Propriété intellectuelle : </strong> </p>
         <p style="text-align:justify">Aucune reproduction, même partielle prévue à l’article L.122-5 du Code de la
                 propriété intellectuelle, ne peut être faite de ce site sans l’autorisation du directeur de
                 publication. </p>
-        <p style="text-align:justify"><strong> Liens hypertextes : </strong> <br />
+        <p style="text-align:center" class="soustitre"><strong> Liens hypertextes : </strong> <br /> </p>
 
                 Le site BDE CESI Bordeaux peut contenir des liens hypertextes vers d’autres sites présents sur le
                 réseau Internet. Les liens vers ces autres ressources vous font quitter le site BDE CESI Bordeaux
@@ -28,7 +28,7 @@
                 l’égard d’un site qui souhaite établir un lien vers le site de l’éditeur. Il convient toutefois
                 d’afficher ce site dans une nouvelle fenêtre du navigateur. Cependant, l’EDITEUR se réserve le droit de
                 demander la suppression d’un lien qu’il estime non conforme à l’objet du site BDE CESI Bordeaux </p>
-        <p style="text-align:justify"><strong> Responsabilité de l’éditeur : </strong> <br />
+        <p style="text-align:center" class="soustitre"><strong> Responsabilité de l’éditeur : </strong> <br /> </p>
 
                 Les informations et/ou documents figurant sur ce site et/ou accessibles par ce site proviennent de
                 sources considérées comme étant fiables.
@@ -53,7 +53,7 @@
                 L’EDITEUR ne pourra en aucun cas être tenu responsable de tout dommage de quelque nature qu’il soit
                 résultant de l’interprétation ou de l’utilisation des informations et/ou documents disponibles sur ce
                 site. </p>
-        <p style="text-align:justify"><strong> Accès au site : </strong> <br />
+        <p style="text-align:center" class="soustitre"><strong> Accès au site : </strong> <br /> </p>
 
                 L’éditeur s’efforce de permettre l’accès au site 24 heures sur 24, 7 jours sur 7, sauf en cas de force
                 majeure ou d’un événement hors du contrôle de l’EDITEUR, et sous réserve des éventuelles pannes et
@@ -71,12 +71,12 @@
                 sans préavis, le tout sans droit à indemnités. L’utilisateur reconnaît et accepte que l’EDITEUR ne soit
                 pas responsable des interruptions, et des conséquences qui peuvent en découler pour l’utilisateur ou
                 tout tiers. </p>
-        <p style="text-align:justify"><strong> Modification des conditions d’utilisation : </strong> <br />
+        <p style="text-align:center" class="soustitre"><strong> Modification des conditions d’utilisation : </strong> <br /> </p>
 
                 L’EDITEUR se réserve la possibilité de modifier, à tout moment et sans préavis, les présentes
                 conditions d’utilisation afin de les adapter aux évolutions du site et/ou de son exploitation.
 
-                <strong> Règles d'usage d'Internet : </strong> <br />
+        <p style="text-align:center" class="soustitre"><strong> Règles d'usage d'Internet : </strong> <br /> </p>
 
                 L’utilisateur déclare accepter les caractéristiques et les limites d’Internet, et notamment reconnaît
                 que :
@@ -98,7 +98,7 @@
 
                 L’utilisateur reconnaît que l’EDITEUR ne dispose d’aucun moyen de contrôle sur le contenu des services
                 accessibles sur Internet </p>
-        <p style="text-align:justify"><strong> Droit applicable : </strong> <br />
+        <p style="text-align:center" class="soustitre"><strong> Droit applicable : </strong> <br /> </p>
 
                 Tant le présent site que les modalités et conditions de son utilisation sont régis par le droit
                 français, quel que soit le lieu d’utilisation. En cas de contestation éventuelle, et après l’échec de

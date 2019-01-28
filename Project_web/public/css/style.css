@@ -152,6 +152,14 @@ html, body {
     margin-bottom: 20px;
 }
 
+.titre {
+    font-size: 39px;
+}
+
+.soustitre {
+    font-size: 30px;
+}
+
 
 @keyframes biggerandsmaller {
     0% {

@@ -50,6 +50,9 @@ Route::get('/cgu', function () {
     return view('cgu');
 });
 
+Route::get('/cgv', function () {
+    return view('cgv');
+});
 
 Route::get('/cart', function () {
     return view('/cart');
