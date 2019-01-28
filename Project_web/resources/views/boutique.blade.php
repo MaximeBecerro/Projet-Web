@@ -18,8 +18,8 @@
                             // Récupération du fichier json 
                             $json = json_decode(file_get_contents('http://localhost:3000/products'), true)
                             
-                           $image = {{$id['ProductImage']}};
-                           $lien = ("/images/" + $image + ".png");
+                           // $image = {{$id['ProductImage']}};
+                           // $lien = ("/images/" + $image + ".png");
                             
                             @endphp 
 
@@ -30,7 +30,7 @@
                                 <div class="card mb-4 box-shadow">
                                     <!-- Affichage de l'image -->
                                     <h5 class="" id="exampleModalLongTitle">{{$id['ProductName']}}</h5>
-                                    <img class="card-img-top" src="{{$lien }} " alt="Card image cap">
+                                    <img class="card-img-top" src="{{$id['ProductImage']}} " alt="Card image cap">
                                     <div class="card-body">
                                         <!-- Récupération et affichage de la description -->
                                         <p class="card-text" > {{$id['ProductDescription']}}</p>
@@ -49,7 +49,9 @@
                                     </div>
                                 </div>
                             </div>
+
                             @endforeach
+
                         </div>
                     </div>
                 </div>
