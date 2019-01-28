@@ -7,6 +7,10 @@ var hostname = 'localhost';
 var port = 3000;
 var app = express();
 var ext;
+var fs = require('fs');
+var pdf = require('html-pdf');
+//var html = fs.readFileSync('./test/businesscard.html', 'utf8');
+var options = { format: 'Letter' };
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,24 +22,11 @@ var pool = mysql.createPool({
     database: 'projetweb'
 });
 
-//CHOOSE WICH ONE
-//var routes = require("./routes/routes.js")(app);
 var myRouter = express.Router();
 
-/*myRouter.route('/users')
-    .get(function (req, res) {
-        connection.connect(function (err) {
-            if (err) throw err;
-            console.log("Connected :");
-            connection.query("SELECT name, email, roleid FROM users", function (err, result) {
-                if (err) throw err;
-                console.log(result);
-                res.json(result);
-            })
-        })
-    })*/
-
-
+//  Fonction pour faire une requête permettant de récupérer les données de la BDD
+//  Param : req (request), res (respond), opt (option), ext (extansion)
+//  Return : rien
 function handle_database(req, res, opt, ext) {
     pool.getConnection(function (err, connection) {
         if (err) {
@@ -44,7 +35,6 @@ function handle_database(req, res, opt, ext) {
         }
         console.log('connected as id ' + connection.threadId);
 
-        //Query for users
         if (opt == 0) {
             if (ext == "") {
                 connection.query("SELECT name, email, roleid FROM users", function (err, rows) {
@@ -59,10 +49,14 @@ function handle_database(req, res, opt, ext) {
             }
         }
 
-        //Query for products
+        myRouter.route('/users/:user_id')
+            .get(function (req, res) {
+                res.json({ message: "Vous souhaitez accéder aux informations de l'utilisateur n°", methode: req.method });
+            })
+
         if (opt == 1) {
             if (ext == "") {
-                connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription FROM products", function (err, rows) {
+                connection.query("SELECT ProductID, ProductName, ProductPrice, ProductDescription, ProductImage FROM products", function (err, rows) {
                     connection.release();
                     if (!err) { res.json(rows); }
                 });
@@ -74,7 +68,6 @@ function handle_database(req, res, opt, ext) {
             }
         }
 
-        //Query for ideas
         if (opt == 2) {
             if (ext == "") {
                 connection.query("SELECT IdeaContent, id FROM ideas", function (err, rows) {
@@ -89,7 +82,6 @@ function handle_database(req, res, opt, ext) {
             }
         }
 
-        //Query for events
         if (opt == 3) {
             if (ext == "") {
                 connection.query("SELECT EventDate, EventImage, EventDescription, LocationLatitude, LocationLongitude, Recurring, Fee, EventHidden FROM events", function (err, rows) {
@@ -104,7 +96,6 @@ function handle_database(req, res, opt, ext) {
             }
         }
 
-        //Query for basket
         if (opt == 4) {
             if (ext == "") {
                 connection.query("SELECT Quantity, ProductID FROM basket", function (err, rows) {
@@ -126,7 +117,6 @@ function handle_database(req, res, opt, ext) {
     });
 }
 
-//Routes for users
 myRouter.route('/users').get(function (req, res) {
     handle_database(req, res, 0, "");
 })
@@ -135,7 +125,6 @@ myRouter.route('/users/:ext').get(function (req, res) {
     handle_database(req, res, 0, req.params.ext);
 })
 
-//Routes for products
 myRouter.route('/products').get(function (req, res) {
     handle_database(req, res, 1, "");
 })
@@ -144,7 +133,7 @@ myRouter.route('/products/:ext').get(function (req, res) {
     handle_database(req, res, 1, req.params.ext);
 })
 
-//Routes for ideas
+
 myRouter.route('/ideas').get(function (req, res) {
     handle_database(req, res, 2, "");
 })
@@ -153,7 +142,6 @@ myRouter.route('/ideas/:ext').get(function (req, res) {
     handle_database(req, res, 2, req.params.ext);
 })
 
-//Routes for events
 myRouter.route('/events').get(function (req, res) {
     handle_database(req, res, 3, "");
 })
@@ -162,7 +150,6 @@ myRouter.route('/events/:ext').get(function (req, res) {
     handle_database(req, res, 3, req.params.ext);
 })
 
-//Routes for basket
 myRouter.route('/basket').get(function (req, res) {
     handle_database(req, res, 4, "");
 })
@@ -171,58 +158,35 @@ myRouter.route('/basket/:ext').get(function (req, res) {
     handle_database(req, res, 4, req.params.ext);
 })
 
-
 app.use(myRouter);
 
+//  Fonction permettant de vérifier si le serveur fonctionne et notament d'indiquer l'adresse du serveur
+//  param : aucun
+//  return : rien
 var server = app.listen(port, hostname, function () {
     console.log("Mon serveur fonctionne sur http://" + hostname + ":" + port + "\n");
 });
 
-/*myRouter.route('/products')
-.get(function (req, res) {
-    connection.connect(function (err) {
-        if (err) throw err;
-        console.log("Connected :");
-        connection.query("SELECT ProductName, ProductPrice, ProductDescription FROM products", function (err, result) {
-            if (err) throw err;
-            console.log(result);
-            res.json(result);
-        })
-    })
-})
-*/
+//  Fonction permettant de télécharger la liste des inscrits
+//   param : err, res
+//  return : une erreur 404 si erreur
 
-/*//Really necessary ?
-    //POST
-    .post(function(req,res){
-        res.json({message : "Ajoute un nouvel utilisateur à la liste", methode : req.method});
-    })
-    //PUT
-    .put(function(req,res){
-        res.json({message : "Mise à jour des informations d'un utilisateur dans la liste", methode : req.method});
-    })
-    //DELETE
-    .delete(function(req,res){
-    res.json({message : "Suppression d'un utilisateur dans la liste", methode : req.method});
-    });
-*/
+/*pdf.create(html, options).toFile('./usersList.pdf', function (err, res) {
+    if (err) return console.log(err);
+    console.log(res); // { filename: '/app/businesscard.pdf' }
+});*/
 
-/*myRouter.route('/users/:user_id')
+
+
+myRouter.route('/users/:user_id')
     .get(function (req, res) {
         res.json({ message: "Vous souhaitez accéder aux informations de l'utilisateur n°", methode: req.method });
     })
 
 myRouter.route('/products/:products_id')
-.get(function (req, res) {
-    res.json({ message: "Vous souhaitez accéder aux informations du produit n°", methode: req.method });
-})*/
-
-
-
-/*  .put(function(req,res){
-        res.json({message : "Vous souhaitez modifier les informations de l'utilisateur n°", methode : req.method});
+    .get(function (req, res) {
+        res.json({ message: "Vous souhaitez accéder aux informations du produit n°", methode: req.method });
     })
-    .delete(function(req,res){
-    res.json({message : "Vous souhaitez supprimer l'utilisateur n°", methode : req.method});
-    });
-*/
+
+
+
