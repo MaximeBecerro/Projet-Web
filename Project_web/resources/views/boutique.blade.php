@@ -19,7 +19,7 @@ $user = Auth::user()->roleid;
 @php
 $user = '0';
 @endphp
-@endif
+@endif  
 <div class="container">
     <div class="titlepage content">
         <!-- Titre de la page -->

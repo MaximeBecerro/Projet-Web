@@ -33,8 +33,7 @@
                 echo '<div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <p class="card-text">' . $id['IdeaContent'] . '</p>
-                        <a href="#" class="card-link">' . $id['id'] . '</a>
-                        <a href="#" class="card-link">' . $userId . '</a>
+                        
                     </div>
                 </div>';
                 }

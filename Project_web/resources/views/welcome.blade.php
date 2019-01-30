@@ -10,7 +10,7 @@
 
 <div>
 
-  <div id="carousel" class="carousel slide sizecarousel" data-ride="carousel" data-interval="2000">
+  <div id="carousel" class="carousel slide sizecarousel" data-ride="carousel" data-interval="2200">
     <!-- Caroussel changeant entre les 2 produits les plus vendus et l'évènement du mois-->
 
 
@@ -38,9 +38,10 @@
                 if($id['EventDate'] > date("Y-m-d")){
                   echo '<div class="card mx-auto" style="width: 18rem;">
                           <div class="card-body">
-                            <p class="card-text">' . $id['EventImage'] . '</p>
+                            <img class="card-img-top" src="' . $id['EventImage'] . '"  alt="Card image cap"></img>
                           </div>
                           <div class="card-body">
+                            <p class="card-text">' . $id['EventDescription'] . '</p>
                             <a class="card-text">' . $id['EventDate'] . '</a>
                           </div>
                         </div>';
