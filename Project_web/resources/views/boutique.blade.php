@@ -11,9 +11,15 @@ $json = json_decode(file_get_contents('http://localhost:3000/products'), true)
 
 
 @section('content')
-
-
-
+@if (Auth::check())
+@php
+$user = Auth::user()->roleid;
+@endphp
+@else 
+@php
+$user = '0';
+@endphp
+@endif
 <div class="container">
     <div class="titlepage content">
         <!-- Titre de la page -->
@@ -46,11 +52,11 @@ $json = json_decode(file_get_contents('http://localhost:3000/products'), true)
                                                 <button type="button" class="btn btn  btn-outline-secondary" data-toggle="modal" onclick="" data-target="#popup">
                                            
                                                 Achat
-
+                                                @if($user == 3)
                                                 </button> 
                                                 <!-- Bouton permettant de signaler un produit -->
                                                 <button type="button" class="btn btn  btn-outline-secondary" data-toggle="modal" data-target="#popup">Signaler  </button> 
-
+                                                @endif
                
 
                                              </div>
