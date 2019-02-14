@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class Cart extends Controller
 {
-   public function requete(){
-        DB::table('basket')->insert (['id' => 1, 'Quantity' => 1, 'ProductID' => 1]);
+   public function addToCart($id,$ProductID){
+        DB::table('basket')->insert (['id' => $id, 'Quantity' => 1, 'ProductID' => $ProductID]);
     }
 }

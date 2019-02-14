@@ -26,7 +26,7 @@ Route::get('/evenementspassé', function () {
 
 Route::get('idees', 'ApiController@store');
 
-Route::post('ProduitCart', 'Cart@requete');
+Route::post('ProduitCart', 'Cart@addToCart');
 
 Route::get('/boutique', function () {
     $products=DB::table('products')->get();
