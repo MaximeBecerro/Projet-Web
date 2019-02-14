@@ -32,19 +32,19 @@ $user = '0';
 
                     
                     
-                            @foreach ($json as $ProductID => $id)
+                            @foreach ($products as $product )
                               
                             <!-- Affichage des produits en fonctione de la base de données -->
                              <div class="col-10 col-md-4 col-sm-6">
                                 <div class="card mb-4 box-shadow">
 
                                     <!-- Affichage de l'image -->
-                                    <h5 class="" id="exampleModalLongTitle">{{$id['ProductName']}}</h5>
-                                    <img class="card-img-top" src="{{$id['ProductImage']}} " alt="Card image cap">
+                                    <h5 class="" id="exampleModalLongTitle">{{$product->ProductName}}</h5>
+                                    <img class="card-img-top" src="{{$product->ProductImage}} " alt="Card image cap">
                                     <div class="card-body">
 
                                         <!-- Récupération et affichage de la description -->
-                                        <p class="card-text" > {{$id['ProductDescription']}}</p>
+                                        <p class="card-text" > {{$product->ProductDescription}}</p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
 
@@ -61,7 +61,7 @@ $user = '0';
 
                                              </div>
                                     <!-- Récupération et affichage du prix du produit -->
-                                    <small class="text-muted"> {{$id['ProductPrice']}}€</small>
+                                    <small class="text-muted"> {{$product->ProductPrice}}€</small>
                                 </div>
                             </div>
                         </div>

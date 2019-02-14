@@ -111,8 +111,7 @@
             tiers. Seule l'hypothèse du rachat du site 127.0.0.1:8000 et de ses droits autorise BDE CESI Bordeaux à
             transmettre les dites informations à l'éventuel acquéreur qui serait à son tour tenu à la même obligation
             de conservation et de modification des données vis à vis de l'utilisateur du site 127.0.0.1:8000.<br />
-            Le site 127.0.0.1:8000 est en conformité avec le RGPD voir notre politique RGPD 
-            http://127.0.0.1:8000/rgpd.</p>
+           </p>
 
         <p style="text-align:justify">Les bases de données sont protégées par les dispositions de la loi du 1er juillet
             1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p>
