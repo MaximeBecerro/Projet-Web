@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/evenements', function () {
     return view('evenements');
 });
@@ -26,12 +25,17 @@ Route::get('/evenementspassé', function () {
 
 Route::get('idees', 'ApiController@store');
 
-Route::post('ProduitCart', 'Cart@addToCart');
+Route::get('/ajout/{id}', [
+    'uses' => 'ProductController@addToCart',
+    'as' => 'addProduct'
+    ]);
 
-Route::get('/boutique', function () {
-    $products=DB::table('products')->get();
-    return view('boutique', compact('products'));
-});
+Route::get('/boutique', 
+    [
+       'uses' => 'ProductController@display',
+       'as' => 'index'
+    ]
+   );
 
 Auth::routes();
 
