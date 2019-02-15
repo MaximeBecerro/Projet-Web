@@ -4,6 +4,14 @@
 @section('content')
 <!-- Modification du content -->
 test
+
+@if(Auth::check())
+@if(Auth::user()->checkRole('bde'))
+
+test si je suis membre du BDE
+
+@endif
+@endif
 <ul>
     @foreach ($users as $user)
     <!-- Pour chaque utilisateur -->

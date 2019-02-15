@@ -19,6 +19,9 @@
   <!-- Styles -->
   {{HTML::style("css/style.css")}}
 
+  <?php
+  use Illuminate\Support\Facades\Auth;
+  ?>
 
 </head>
 
