@@ -43,6 +43,7 @@ $user = '0';
                                     <!-- Affichage de l'image -->
                                     <h5 class="" id="exampleModalLongTitle">{{$product->ProductName}}</h5>
                                     <img class="card-img-top" src="{{$product->ProductImage}} " alt="Card image cap">
+                                   
                                     <div class="card-body">
 
                                         <!-- Récupération et affichage de la description -->
@@ -51,9 +52,11 @@ $user = '0';
                                             <div class="btn-group">
 
                                                 <!-- Bouton d'achat qui ajoute au panier -->
-                                                
-                                            <button type="button" class="btn btn  btn-outline-secondary" data-toggle="modal" onclick="" data-target="#popup">
-                                           
+                                                <form action="/add-to-cart">
+                                                    {{ csrf_field() }}
+                                                    <input type="hidden" value="{{$product->ProductID}}" readonly name="add"/>
+                                                    <button type="submit" class="btn btn  btn-outline-secondary" data-toggle="modal" data-target="#popup">
+                                                </form>
                                                 Achat
                                                 @if($user == 3)
                                                 </button> 

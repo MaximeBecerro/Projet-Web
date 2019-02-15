@@ -7,5 +7,7 @@ use Session;
 
 class BasketController extends Controller
 {
-   
+   public function index(){
+       
+   }
 }

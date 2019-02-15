@@ -66,8 +66,30 @@ Route::get('/cart', function () {
     return view('/cart');
 });
 
-Route::get('/create_event', function () {
-    return view('/create_event');
-});
 
-Route::post('/store_event', 'EventController@store');
+
+
+Route::get('/reduce/{id}', [
+    'uses' => 'ProductController@getReduceByOne',
+    'as' => 'product.reduceByOne',
+]);
+
+Route::get('/remove/{id}', [
+    'uses' => 'ProductController@getRemoveItem',
+    'as' => 'product.remove',
+]);
+
+Route::get('/add-to-cart', [
+    'uses' => 'ProductController@addToCart',
+    'as' => 'product.addToCart',
+]);
+
+Route::get('/shopping-cart', [
+    'uses' => 'ProductController@getCart',
+    'as' => 'product.shoppingCart',
+])->middleware('auth');
+
+Route::get('/shop', [
+    'uses' => 'ProductController@getIndex',
+    'as' => 'product.shop',
+]);

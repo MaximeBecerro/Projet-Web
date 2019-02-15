@@ -14,14 +14,81 @@ class ProductController extends Controller
         return view('boutique', ['products' => $products]);
     } 
 
-    public function addToCart(Request $request, $ProdID){
+    public function addToCart(Request $request){
        //DB::table('basket')->insert (['id' => $id, 'Quantity' => 1, 'ProductID' => $ProductID]);
-        $cart = new Basket([]);
-        $userd = 
+        //$cart = new Basket([]);
+       // $userd = 
 
-        $cart = $request->input('id', 'Request');
+       // $cart = $request->input('id', 'Request');
 
 
-        return $cart;
+       // return $cart;
+        $user = auth()->id();
+        $products = new Basket;
+        $products->ProductID = $request->add; 
+        $products->id = $user;
+        $products->save();
+
+        return view('boutique');
+
+    //    $product = Product::find($ProdID);
+    //     $oldCart = Session::has('cart') ? Session::get('cart') : null;
+    //     $cart = new Cart($oldCart);
+    //     $cart->add($product, $product->ProductID);
+
+    //     $request->session()->put('cart', $cart);
+    //     return redirect()->route('product.shop');
     }
+
+    public function getCart()
+    {
+        if (!Session::has('cart')) {
+            return view('shop.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+
+    }
+
+
+    // public function getCheckout()
+    // {
+    //     if (!Session::has('cart')) {
+    //         return view('shop.shopping-cart');
+    //     }
+    //     $oldCart = Session::get('cart');
+    //     $cart = new Cart($oldCart);
+    //     $total = $cart->totalPrice;
+    //     return view('shop.checkout', ['total' => $total]);
+    // }
+
+
+    // public function getReduceByOne($ProdID)
+    // {
+    //     $oldCart = Session::has('cart') ? Session::get('cart') : null;
+    //     $cart = new Cart($oldCart);
+    //     $cart->reduceByOne($ProdID);
+    //     if (count($cart->items) > 0) {
+    //         Session::put('cart', $cart);
+    //     } else {
+    //         Session::forget('cart');
+    //         return redirect()->route('product.shop');
+    //     }
+    //     return redirect()->route('product.shoppingCart');
+    // }
+
+    // public function getRemoveItem($ProdID)
+    // {
+    //     $oldCart = Session::has('cart') ? Session::get('cart') : null;
+    //     $cart = new Cart($oldCart);
+    //     $cart->removeItem($ProdID);
+    //     if (count($cart->items) > 0) {
+    //         Session::put('cart', $cart);
+    //     } else {
+    //         Session::forget('cart');
+    //         return redirect()->route('product.shop');
+    //     }
+    //     return redirect()->route('product.shoppingCart');
+    // }
 }
