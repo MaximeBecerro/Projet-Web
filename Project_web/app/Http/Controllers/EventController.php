@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
+use Illuminate\Support\Facades\Storage;
+
 
 class EventController extends Controller
 {
@@ -34,7 +37,15 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('image');
+        $data = $request->all();
+        $image = $image->store('events','images');
+        Event::create([
+            'EventDate' => $data['date'],
+            'EventImage' => $image,
+            'EventDescription' => $data['event_description'],
+        ]);
+        return redirect('/evenements');
     }
 
     /**

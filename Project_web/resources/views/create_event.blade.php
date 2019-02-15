@@ -8,7 +8,8 @@
         <br />
         <h3 aling="center"> Créer un évènement</h3>
         <br />
-        <form method="post" action="{{url('/')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('/store_event')}}" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <input type="text" name="event_description" class="form-control" placeholder="Description de l'évènement" />
             </div>
@@ -18,7 +19,6 @@
             <br />
             <input type="date" name="date" id="date">
         </form>
-
     </div>
 </div>
 

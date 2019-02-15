@@ -69,3 +69,5 @@ Route::get('/cart', function () {
 Route::get('/create_event', function () {
     return view('/create_event');
 });
+
+Route::post('/store_event', 'EventController@store');
