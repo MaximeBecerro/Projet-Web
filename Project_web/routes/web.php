@@ -65,3 +65,7 @@ Route::get('/cgv', function () {
 Route::get('/cart', function () {
     return view('/cart');
 });
+
+Route::get('/create_event', function () {
+    return view('/create_event');
+});

@@ -4,6 +4,21 @@
 @section('content')
 <!-- Modification du content -->
 <main role="main">
+
+    @if (Auth::check())
+    @php
+    $id = Auth::user()->roleid;
+    @endphp
+    @else
+    @php
+        $id = 0;
+    @endphp
+    @endif
+    @if($id == 2)
+    
+    <button type="button"  onclick="window.location='{{ url("create_event") }}'" class="btn btn-primary">Ajouter un évènement</button>
+    @endif
+
         <div class="album py-5 ">
             <div class="container">
                 <div class="row">
