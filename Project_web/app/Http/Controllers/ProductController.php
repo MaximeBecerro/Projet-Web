@@ -21,7 +21,7 @@ class ProductController extends Controller
 
        // $cart = $request->input('id', 'Request');
 
-
+        $bdd = Product::all();
        // return $cart;
         $user = auth()->id();
         $products = new Basket;
@@ -29,7 +29,7 @@ class ProductController extends Controller
         $products->id = $user;
         $products->save();
 
-        return view('boutique');
+        return view('boutique', ['products' => $bdd]);
 
     //    $product = Product::find($ProdID);
     //     $oldCart = Session::has('cart') ? Session::get('cart') : null;

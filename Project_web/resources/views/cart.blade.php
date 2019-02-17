@@ -1,64 +1,80 @@
+@php
+use App\Product;    
+@endphp
+
+
 @extends('master')
 
+
 @section('content')
-@if(Session::has('cart'))
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Quantité</th>
-                <th scope="col">Produit</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Gérer Produits</th>
-            </tr>
-        </thead>
-        <tbody>
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3" style ="align center">
-                <ul class="list-group">
-                    @foreach($products as $product)
-                        <li lass="list-group-item">
-                        <tr>
-                            <td><span class="badge">{{ $product['quantity']}}</span></td>
-                            <td>{{ $product['item']['label'] }}</td>
-                            <td><span class="label label-success">{{ $product['item']['price']}}€</span></td>
-                            <td><div class="btn-group">
-                                <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action<span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('product.reduceByOne', ['id' => $product['item']['id']]) }}">Enlever 1</a></li>
-                                    <li><a href="{{ route('product.remove', ['id' => $product['item']['id']]) }}">Enlever tout</a></li>
-                                </ul>
-                            </div></td>
-                        </tr> 
-                        </li>
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+
+        @foreach ($baskets as $basket )
+
+        @php
+            $product = Product::all();
+            $basket->ProductID = $product->ProductID;
+
+            $title = $product
+
+
+        @endphp
+
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">{{$title}}</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">Product 1</h4>
+										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">$1.99</td>
+							<td data-th="Quantity">
+								<input type="number" class="form-control text-center" value="1">
+							</td>
+							
+							<td class="actions" data-th="">
+								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr>
+                    </tbody>
+                    
                     @endforeach
-                </ul>
-            </div>
-        </div>
-        </tbody>
-    </table>
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <strong>Total : {{$totalPrice}}</strong>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <a href="{{url('order')}}" type="button" class="btn btn-success">Paiement</a>
-                  
-            </div>
-        </div>
-    @else
-    <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                 <h2>Aucun produit dans le panier</h2>
-            </div>
-        </div>
-    @endif
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-    <script src="./assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr>
+						<tr>
+							
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+							<td><a href="#" class="btn btn-success btn-block">Valider <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+</div>
 
 @stop

@@ -37,6 +37,12 @@ Route::get('/boutique',
     ]
    );
 
+   Route::get('/cart', [
+    'uses' => 'BasketController@index',
+    'as' => 'index'
+ ]
+);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -62,9 +68,7 @@ Route::get('/cgv', function () {
     return view('cgv');
 });
 
-Route::get('/cart', function () {
-    return view('/cart');
-});
+
 
 
 

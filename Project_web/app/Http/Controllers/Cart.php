@@ -1,7 +1,7 @@
 <?php 
 
 namespace App;
-
+/*
 class Cart
 {
     public $items;
@@ -47,4 +47,5 @@ class Cart
         unset($this->items[$id]);
     }
 }
+*/
 ?>
