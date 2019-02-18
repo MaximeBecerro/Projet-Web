@@ -43,6 +43,11 @@ Route::get('/boutique',
  ]
 );
 
+Route::get('/validation', [
+    'uses' => 'BasketController@validation',
+    'as' => 'validation'
+ ]
+);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

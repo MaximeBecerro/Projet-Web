@@ -19,11 +19,13 @@ use App\Product;
 
         @foreach ($baskets as $basket )
 
-        @php
-            $product = Product::all();
-            $basket->ProductID = $product->ProductID;
+		@php
+		
+		$message = "Validation de l'achat";
+          // $product = Product::all();
+       	 // $basket->ProductID = $product->ProductID;
 
-            $title = $product
+          //$title = $product->ProductName
 
 
         @endphp
@@ -31,7 +33,7 @@ use App\Product;
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
 						<tr>
-							<th style="width:50%">{{$title}}</th>
+						<th style="width:50%">{{$basket->ProductName}}</th>
 							<th style="width:10%">Price</th>
 							<th style="width:8%">Quantity</th>
 							
@@ -64,14 +66,15 @@ use App\Product;
                     @endforeach
 
 					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1.99</strong></td>
-						</tr>
+					
 						<tr>
 							
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Valider <i class="fa fa-angle-right"></i></a></td>
+							
+							<form action="/validation">
+								{{ csrf_field() }}
+							<td><button type="type="submit href="#" class="btn btn-success btn-block">Valider <i class="fa fa-angle-right"></i></button></td>
+							</form>
 						</tr>
 					</tfoot>
 				</table>
