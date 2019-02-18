@@ -51,6 +51,20 @@ class ProductController extends Controller
 
     }
 
+    public function store(Request $request)
+    {
+        $image = $request->file('image');
+        $data = $request->all();
+        $image = $image->store('products','images');
+        Product::create([
+            'ProductName' => $data['product_name'],
+            'ProductPrice' => $data['product_price'],
+            'ProductDescription' => $data['product_description'],
+            'ProductImage' => $image,
+        ]);
+        return redirect('/boutique');
+    }
+
 
     // public function getCheckout()
     // {

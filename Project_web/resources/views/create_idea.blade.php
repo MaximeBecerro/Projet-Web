@@ -11,12 +11,13 @@ $userId = Auth::id();
         <br />
         <h3 aling="center"> Proposer une idée</h3>
         <br />
-        <form method="post" action="{{url('/store_idea')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('/store_idea')}}" enctype="multipart/form-data" id="form1">
             @csrf
             <div class="form-group" align='center'>
                 <input type="text" style="width:600px; height:100px" name="idea_description" class="form-control" placeholder="Description de l'idée" />
             </div>
         </form>
+        <button type="submit" form="form1" value="Submit">Submit</button>
     </div>
 </div>
 

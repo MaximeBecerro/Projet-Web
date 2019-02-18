@@ -27,6 +27,11 @@ $user = '0';
         Boutique
     </div>
     <main role="main">
+            
+        @if($user == 2)
+        
+        <button type="button"  onclick="window.location='{{ url("create_article") }}'" class="btn btn-primary">Ajouter un article</button>
+        @endif
         <div class="album py-5 ">
             <div class="container">
                 <div class="row">
@@ -42,7 +47,7 @@ $user = '0';
 
                                     <!-- Affichage de l'image -->
                                     <h5 class="" id="exampleModalLongTitle">{{$product->ProductName}}</h5>
-                                    <img class="card-img-top" src="{{$product->ProductImage}} " alt="Card image cap">
+                                    <img class="card-img-top" src="/images/{{$product->ProductImage}} " alt="Card image cap">
                                    
                                     <div class="card-body">
 

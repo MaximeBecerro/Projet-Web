@@ -80,6 +80,12 @@ Route::get('/create_idea', function () {
 
 Route::post('/store_idea', 'IdeaController@store');
 
+Route::get('/create_article', function () {
+    return view('/create_article');
+});
+
+Route::post('/store_article', 'ProductController@store');
+
 Route::get('/reduce/{id}', [
     'uses' => 'ProductController@getReduceByOne',
     'as' => 'product.reduceByOne',
