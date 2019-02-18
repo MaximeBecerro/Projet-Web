@@ -14,13 +14,13 @@ function getMyPermission($id){
             return 'visitor';
             break;
         case 1:
-            return 'bde';
+            return 'student';
             break;
         case 2:
-            return 'employee';
+            return 'bde';
             break;
         case 3:
-            return 'student';
+            return 'employee';
             break;
     }
 }

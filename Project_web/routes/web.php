@@ -68,10 +68,17 @@ Route::get('/cgv', function () {
     return view('cgv');
 });
 
+Route::get('/create_event', function () {
+    return view('/create_event');
+});
 
+Route::post('/store_event', 'EventController@store');
 
+Route::get('/create_idea', function () {
+    return view('/create_idea');
+});
 
-
+Route::post('/store_idea', 'IdeaController@store');
 
 Route::get('/reduce/{id}', [
     'uses' => 'ProductController@getReduceByOne',

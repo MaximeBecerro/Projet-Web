@@ -8,10 +8,10 @@
         <br />
         <h3 aling="center"> Créer un évènement</h3>
         <br />
-        <form method="post" action="{{url('/store_event')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('/store_event')}}" enctype="multipart/form-data" align='center'>
             @csrf
-            <div class="form-group">
-                <input type="text" name="event_description" class="form-control" placeholder="Description de l'évènement" />
+            <div class="form-group" align='center'>
+                <input type="text" name="event_description" style="width:600px; height:100px" class="form-control" placeholder="Description de l'évènement" />
             </div>
             Photo de l'évènement :
             <input type="file" name="image" id="fileToUpload" accept="image/*">

@@ -13,13 +13,7 @@
     $user = Auth::user()->roleid;
     @endphp
     <form>
-        <div class="col-md-24 flex-center">
-            <div class="form-group">
-                <label for="description"></label>
-                <textarea type="text" class="form-control" id="description" rows="3" style="width: 400px;"> </textarea>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Proposer une idée</button>
+        <button type="button"  onclick="window.location='{{ url("create_idea") }}'" class="btn btn-primary">Proposer une idée</button>
     </form>
     @endif
     <div class="album py-5 ">

@@ -14,7 +14,7 @@
                     // Pour chaque évènement, création d'une carte
                         if($id['EventDate'] < date("Y-m-d")){
                             echo '<div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src=" ' . $id['EventImage']. ' " alt="Card image cap">
+                                <img class="card-img-top" src=" ' . '/images/' . $id['EventImage']. ' " alt="Card image cap">
                                 <div class="card-body">
                                     <p class="card-text">' . $id['EventDescription'] . '</p>
                                     <a class="card-text">' . $id['EventDate'] . '</a>
