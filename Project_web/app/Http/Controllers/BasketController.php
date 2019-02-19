@@ -7,6 +7,7 @@ use Session;
 use App\Basket;
 use App\Product;
 use Mail;
+use App\Mail\Contact;
 
 class BasketController extends Controller
 {
@@ -24,11 +25,7 @@ class BasketController extends Controller
    public function validation(){
       $basket = Basket::all();
       
-      Mail::send("Validation d'achat",[],function($message){
-         $message = "Validation de l'achat";
-         $message->from('ced.mevel@gmail.com')
-                 ->to('cedric.mevel@viacesi.fr');
-      });
+      Mail::to('yannis.taibi@viacesi.fr')->send(new Contact);
 
       
       return view('cart', ['baskets' => $basket]);
